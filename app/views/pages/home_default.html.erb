@@ -8,74 +8,41 @@
 <%= render 'shared/home_pics' %>
 
 <div class="jumbotron">
-  <style>
-  .jumbotron .banner {
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @homepicpath %>);
-  }
-  .jumbotron .banner-xs {
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url(<%= @homepicpathmobile %>);
-  }
-  </style>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <%= photo_update('productphoto', 30, '', '', 30, '.homepic', "Mise à jour photo d'accueil")%>
+      <%= photo_update('productphotomobile', 30, '', '', 412, '.homepicmobile', "Mise à jour photo d'accueil pour mobiles")%>
+      <%= photo_update('logophoto', 30, '', '', 785, '.logopic', "Mise à jour logo")%>
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
 
-<!-- LAPTOP -->
-  <div class="hidden-xs">
-    <div class="banner">
-      <div class="banner-content">
-        <h1><%= t(:home_h1)%></h1>
-        <p><%= t(:home_teaser)%></p>
-        <%= link_to t(:home_button), ceramiques_path, class: "btn btn-primary btn-lg btn-home" %>
-      </div>
-        <%= photo_update('productphoto', 30, '', '', 30, '.homepic', "Mise à jour photo d'accueil")%>
-        <%= photo_update('productphotomobile', 30, '', '', 412, '.homepicmobile', "Mise à jour photo d'accueil pour mobiles")%>
-        <%= photo_update('logophoto', 30, '', '', 785, '.logopic', "Mise à jour logo")%>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active"><div class="item1"></div></div>
+      <div class="item"><div class="item2"></div></div>
+      <style>
+        .item1 {
+            background-image: url(<%= @homepicpath %>);
+        }
+        .item2 {
+            background-image: url(<%= @homepicpath %>);
+        }
+      </style>
     </div>
-  </div>
 
-<!-- MOBILE -->
-  <div class="hidden-sm hidden-md hidden-lg">
-    <div class="banner-xs">
-      <div class="banner-content-xs">
-        <h1><%= t(:home_h1)%></h1>
-        <p><%= t(:home_teaser)%></p>
-        <%= link_to t(:home_button), ceramiques_path, class: "btn btn-primary btn-home" %>
-      </div>
-    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon"><%= image_tag 'left-chevron'%></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon"><%= image_tag 'right-chevron'%></span>
+    </a>
   </div>
-
 </div>
 
-<div class="home-text hidden-xs hidden-sm">
-  <div class="text">
-    <div class="text-left col-xs-4">
-      <% if user_signed_in? && current_user.admin %>
-          <% article_typing("accueil-gauche", "vertical", "markdown1", "live-text1", "input1") %>
-          <% @markdown = @markdown1 %>
-          <div class="live-text">
-            <%= render 'shared/articletyping' %>
-          </div>
-      <% else %>
-        <div class="plain-text">
-          <% article_display("accueil-gauche", "vertical") %>
-          <%= @markdown.html_safe %>
-        </div>
-      <% end %>
-    </div>
-    <div class="text-right col-xs-8">
-      <% if user_signed_in? && current_user.admin %>
-          <% article_typing("accueil-droit", "vertical", "markdown2", "live-text2", "input2") %>
-          <% @markdown = @markdown2 %>
-          <div class="live-text">
-            <%= render 'shared/articletyping' %>
-          </div>
-      <% else %>
-        <div class="plain-text">
-          <% article_display("accueil-droit", "vertical") %>
-          <%= @markdown.html_safe %>
-        </div>
-      <% end %>
-
-    </div>
-</div>
 
 <% content_for(:after_js) do %>
   <script type="application/ld+json">

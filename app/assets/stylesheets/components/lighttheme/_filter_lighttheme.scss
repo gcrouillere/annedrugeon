@@ -80,15 +80,17 @@
       border-radius: 1px;
       padding: 21px 34px;
       font-size: 16px;
-      color: black;
-      border: 1px solid black;
-      background-color: white;
+      color: white;
+      border: 2px solid $primary;
+      background-color: $primary;
+      transition: 0.1s background-color linear, 0.1s color linear;
       transition: 0.1s background-color linear, 0.1s color linear;
     }
     #recherche:hover {
-      background-color: black;
-      color: white;
+      background-color: white;
+      color: $primary;
       transition: 0.1s background-color linear, 0.1s color linear;
+      text-shadow: 1px 1px 1px #ccc;
     }
   }
 }

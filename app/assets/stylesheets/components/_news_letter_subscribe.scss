@@ -1,0 +1,144 @@
+.subscribe-form {
+  text-align: center;
+  @media all and (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+  }
+  .subscribe-input {
+    padding: 21px 34px 21px 15px;
+    font-size: 14px;
+    font-weight: 100;
+  }
+  .subscribe-submit {
+    margin-left: 7px;
+    @media all and (max-width: 380px) {
+      margin-left: 0px;
+      margin-top: 10px;
+    }
+    border-radius: 1px;
+    padding: 21px 34px;
+    font-size: 14px;
+  }
+}
+
+#footer {
+  .subscribe-input {
+    color: white;
+    &::placeholder {
+     color: white;
+    }
+    background: $primary;
+    border: 2px solid white;
+  }
+  .subscribe-submit {
+    color: black;
+    border: 2px solid white;
+    background-color: white;
+    transition: 0.1s background-color linear, 0.1s color linear;
+  }
+  .subscribe-submit:hover {
+    background-color: $primary;
+    color: white;
+    transition: 0.1s background-color linear, 0.1s color linear;
+  }
+}
+
+.product-show-half-top-wrapper-left, .product-show-mobile {
+  .subscribe-input {
+    color: $primary;
+    &::placeholder {
+     color: $primary;
+    }
+    background: white;
+    border: 2px solid $primary;
+  }
+ .subscribe-submit {
+    color: white;
+    border: 2px solid $primary;
+    background-color: $primary;
+    transition: 0.1s background-color linear, 0.1s color linear;
+  }
+  .subscribe-submit:hover {
+    background-color: white;
+    color: $primary;
+    transition: 0.1s background-color linear, 0.1s color linear;
+    text-shadow: 1px 1px 1px #ccc;
+  }
+}
+
+.subscribe-text {
+  text-align: center;
+  h2 {
+    font-weight: 400;
+    font-size: 35px;
+    margin-left: 0px;
+  }
+  p {
+    font-weight: 100;
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .subscribe-text {
+    h2 {
+      font-weight: 400;
+      font-size: 30px;
+      margin-left: 0px;
+    }
+    p {
+      font-weight: 100;
+      font-size: 15px;
+    }
+  }
+}
+
+#footer {
+ .newsletter-subscribe {
+    text-align: center;
+    padding: 10px;
+    .social-buttons-contact {
+      margin-top: 11px;
+      a {
+        font-size: 21px;
+      }
+      .center-social-link {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+.product-show-half-top-wrapper-left {
+  .newsletter-in-product {
+      display: flex;
+  }
+  .filling-bloc {
+    width: 100px;
+  }
+  .newsletter-subscribe {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: 10px;
+    h2 {
+      font-size: 22px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+.product-show-mobile  {
+  .newsletter-subscribe {
+    text-align: center;
+    padding: 10px;
+    h2 {
+      font-size: 18px;
+      margin-top: 0px;
+    }
+    p {
+      font-size: 11px;
+    }
+  }
+}

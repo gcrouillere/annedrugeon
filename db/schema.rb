@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_121232) do
+ActiveRecord::Schema.define(version: 2018_09_16_122509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,8 +104,17 @@ ActiveRecord::Schema.define(version: 2018_08_08_121232) do
     t.integer "weight"
     t.integer "offer_id"
     t.integer "position"
+    t.bigint "collection_id"
     t.index ["category_id"], name: "index_ceramiques_on_category_id"
+    t.index ["collection_id"], name: "index_ceramiques_on_collection_id"
     t.index ["offer_id"], name: "index_ceramiques_on_offer_id"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -242,6 +251,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_121232) do
   add_foreign_key "basketlines", "orders"
   add_foreign_key "calendarupdates", "lessons"
   add_foreign_key "ceramiques", "categories"
+  add_foreign_key "ceramiques", "collections"
   add_foreign_key "ceramiques", "offers"
   add_foreign_key "lessons", "users"
   add_foreign_key "orders", "lessons"

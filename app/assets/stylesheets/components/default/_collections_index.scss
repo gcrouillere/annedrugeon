@@ -1,0 +1,61 @@
+.collection-h1 {
+  h1 {
+    font-size: $font-size-h4;
+    margin: 20px 10px 0px 10px;
+  }
+  hr {
+    margin: 5px 0px 20px 0px;
+  }
+}
+
+.collection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collection-image-container {
+  height: 330px;
+  width: 330px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px;
+  h2 {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-style: italic;
+    margin: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(40px);
+    z-index: 2;
+  }
+  .collection-overlay {
+    background: $primary;
+    position: absolute; /* Sit on top of the page content */
+    opacity: 0;
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+    transition: opacity 0.3s ease;
+  }
+}
+
+.collection-image-container:hover .collection-overlay {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.collection-image-container:hover h2 {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.3s ease;
+}

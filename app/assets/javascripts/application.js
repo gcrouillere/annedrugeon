@@ -1,5 +1,6 @@
 //= require jquery3
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require underscore

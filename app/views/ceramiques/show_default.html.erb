@@ -26,10 +26,6 @@
                 <% photo.height > photo.width ? verticale = true : nil %>
               <% end %>
               <% verticale ? classe = "verticale" : classe = "horizontale"  %>
-              <div class="front-image-div">
-                <%= render 'shared/product_image_overlay' %>
-                <img class="img-front <%= classe %> " id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto"%>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
-              </div>
               <div class="images">
                 <% @ceramique.photos.each_with_index do |photo, index| %>
                   <% if index < 4 %>
@@ -37,45 +33,52 @@
                   <% end %>
                 <% end %>
               </div>
+              <div class="front-image-div">
+                <%= render 'shared/product_image_overlay' %>
+                <img class="img-front <%= classe %> " id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto"%>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
+              </div>
+
+            </div>
+            <div class="newsletter-in-product">
+              <div class="filling-bloc"></div>
+              <div class="newsletter-subscribe">
+                <h2><%= t(:new_and_updates).upcase%></h2>
+                <p><%=t(:yes_i_want)%></p>
+                <%= render 'shared/subscribe' %>
+              </div>
             </div>
           </div>
 
           <div class="product-show-half-top-wrapper-right">
           <div class="info-add-basket">
             <div class="description">
-              <h1> <%= @ceramique.name.capitalize%> </h1>
+              <h1><%= @ceramique.name.capitalize%></h1>
               <%= facebook_share_id("facebookshare") %>
-              <p class="description"> <%= @ceramique.description.gsub(/\n/, '<br>').html_safe%> </p>
               <hr>
-            </div>
-            <div class="prix-form">
-              <% @ceramique.offer ? discount =  @ceramique.offer.discount : discount = 0 %>
-              <h2> <%= humanized_money(@ceramique.price * (1 - discount))%> <%= currency_symbol %> </h2>
-              <% if @ceramique.offer %>
-                <% if @ceramique.offer.discount > 0 %>
-                  <h3 class="previous-price"><%= humanized_money(@ceramique.price)%> <%= currency_symbol %></h3>
+              <div class="prix-form">
+                <% @ceramique.offer ? discount =  @ceramique.offer.discount : discount = 0 %>
+                <h2> <%= humanized_money(@ceramique.price * (1 - discount))%> <%= currency_symbol %> </h2>
+                <% if @ceramique.offer %>
+                  <% if @ceramique.offer.discount > 0 %>
+                    <h3 class="previous-price"><%= humanized_money(@ceramique.price)%> <%= currency_symbol %></h3>
+                  <% end %>
                 <% end %>
-              <% end %>
-              <% if  @ceramique.stock > 0 %>
-                <form action="/orders" method="post" authenticity_token="true" class="form">
-                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                  <div class="qte">
-                    <label for="quantity"><%= t(:quantity)%> </label>
-                    <select name="quantity">
-                      <% for i in 1..@ceramique.stock %>
-                        <option value="<%= i %>"><%= i %></option>
-                      <% end %>
-                    </select>
-                  </div>
-                  <input type="hidden" name="ceramique" value="<%= @ceramique.id%>">
-                  <input type="hidden" name="locale" value="<%= I18n.locale%>">
-                  <button type="submit" class="pull-right btn btn-primary order">
-                    <i class="fa fa-plus""></i> <%= t(:add_to_basket) %>
-                  </button>
-                </form>
-              <% else %>
-                  <h2 class="stock0"><%= t(:out_of_stock) %></h2>
-              <% end %>
+                <% if  @ceramique.stock > 0 %>
+                  <form action="/orders" method="post" authenticity_token="true" class="form">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="ceramique" value="<%= @ceramique.id%>">
+                    <input type="hidden" name="locale" value="<%= I18n.locale%>">
+                    <button type="submit" class="pull-right btn btn-primary order">
+                      <i class="fa fa-plus""></i> <%= t(:add_to_basket) %>
+                    </button>
+                  </form>
+                <% else %>
+                    <h2 class="stock0"><%= t(:out_of_stock) %></h2>
+                <% end %>
+              </div>
+              <hr>
+              <p class="description"> <%= @ceramique.description.gsub(/\n/, '<br>').html_safe%> </p>
             </div>
           </div>
           </div>
@@ -124,74 +127,65 @@
   </div>
 
 <!-- MOBILE -->
-  <!-- <div class="hidden-md hidden-lg"> -->
-    <div class="row">
-      <div class="col-xs-12 hidden-md hidden-lg">
+  <div class="row">
+    <div class="col-xs-12 hidden-md hidden-lg">
 
-        <div class="head">
-          <%= facebook_share_id("facebooksharemobile") %>
-          <h1> <%= @ceramique.name.capitalize%> </h1>
-          <div class="image-xs-sm">
-            <img class="img-front" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
-          </div>
+      <div class="head">
+        <%= facebook_share_id("facebooksharemobile") %>
+        <h1> <%= @ceramique.name.capitalize%> </h1>
+        <div class="image-xs-sm">
+          <img class="img-front" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
         </div>
-        <div class="other-imgs other-mobile">
-          <div class="images-mobile">
-            <% @ceramique.photos.each_with_index do |photo, index| %>
-              <% if index < 4 %>
-                <img class="thumbnail" src="<%= cl_image_path @ceramique.photos[index].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
-              <% end %>
+      </div>
+      <div class="other-imgs other-mobile">
+        <div class="images-mobile">
+          <% @ceramique.photos.each_with_index do |photo, index| %>
+            <% if index < 4 %>
+              <img class="thumbnail" src="<%= cl_image_path @ceramique.photos[index].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
             <% end %>
-          </div>
-        </div>
-
-        <div class="product-show-mobile text center">
-          <div class="info-add-basket">
-            <div class="description">
-              <p class="description"> <%= @ceramique.description.gsub(/\n/, '<br>').html_safe %> </p>
-              <hr>
-            </div>
-            <div class="prix-form">
-              <% @ceramique.offer ? discount =  @ceramique.offer.discount : discount = 0 %>
-              <h2> <%= humanized_money(@ceramique.price * (1 - discount))%> <%= currency_symbol %> </h2>
-              <% if @ceramique.offer %>
-                    <% if @ceramique.offer.discount > 0 %>
-                      <h3 class="previous-price"><%= humanized_money(@ceramique.price)%> <%= currency_symbol %></h3>
-                    <% end %>
-                  <% end %>
-              <% if  @ceramique.stock > 0 %>
-                <form action="/orders" method="post" authenticity_token="true" class="form">
-                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                  <div class="qte">
-                    <label for="quantity"><%= t(:qte)%> </label>
-                    <select name="quantity">
-                      <% for i in 1..@ceramique.stock %>
-                        <option value="<%= i %>"><%= i %></option>
-                      <% end %>
-                    </select>
-                  </div>
-                  <input type="hidden" name="ceramique" value="<%= @ceramique.id%>">
-                  <input type="hidden" name="locale" value="<%= I18n.locale%>">
-                  <button type="submit" class="pull-right btn btn-primary order">
-                    <i class="fa fa-plus""></i> <i class="fa fa-shopping-cart"></i>
-                  </button>
-                </form>
-              <% else %>
-                  <h2 class="stock0"><%= t(:out_of_stock) %></h2>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="mobile-link">
-          <%= link_to ceramiques_path do %>
-            <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL'].capitalize%></span>
           <% end %>
         </div>
-
       </div>
+
+      <div class="product-show-mobile text center">
+        <div class="info-add-basket">
+          <div class="prix-form">
+            <% @ceramique.offer ? discount =  @ceramique.offer.discount : discount = 0 %>
+            <h2> <%= humanized_money(@ceramique.price * (1 - discount))%> <%= currency_symbol %> </h2>
+            <% if @ceramique.offer %>
+                  <% if @ceramique.offer.discount > 0 %>
+                    <h3 class="previous-price"><%= humanized_money(@ceramique.price)%> <%= currency_symbol %></h3>
+                  <% end %>
+                <% end %>
+            <% if  @ceramique.stock > 0 %>
+              <form action="/orders" method="post" authenticity_token="true" class="form">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="ceramique" value="<%= @ceramique.id%>">
+                <input type="hidden" name="locale" value="<%= I18n.locale%>">
+                <button type="submit" class="pull-right btn btn-primary order">
+                  <i class="fa fa-plus""></i> <%= image_tag 'whitecart.svg' %>
+                </button>
+              </form>
+            <% else %>
+                <h2 class="stock0"><%= t(:out_of_stock) %></h2>
+            <% end %>
+          </div>
+          <div class="description-bloc">
+            <p class="description"> <%= @ceramique.description.gsub(/\n/, '<br>').html_safe %> </p>
+          </div>
+        </div>
+        <div class="newsletter-in-product">
+          <div class="newsletter-subscribe">
+            <h2><%= t(:new_and_updates).upcase%></h2>
+            <p><%=t(:yes_i_want)%></p>
+            <%= render 'shared/subscribe' %>
+          </div>
+        </div>
+      </div>
+
     </div>
-  <!-- </div> -->
+  </div>
 
 </div>
 

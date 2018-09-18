@@ -80,7 +80,7 @@ show do |ceramique|
   def create
     super do |format|
       if resource.valid?
-        flash[:notice] = "Produit mis à jour"
+        flash[:notice] = "Produit créé"
         redirect_to admin_produits_path and return
       else
         flash[:alert] = "Certains champs ont été oubliés ou ne sont pas correctement remplis. Voir ci-dessous."

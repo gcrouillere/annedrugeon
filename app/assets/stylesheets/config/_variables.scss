@@ -1,21 +1,21 @@
 /* -------------------------------------
  * Fonts type
  * ------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,300,700|Raleway:400,100,300,700,500");
 // @import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700|Nanum+Myeongjo:400,700,800");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
+$base-font: "Montserrat", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
 
 /* -------------------------------------
  * Colors
  * ------------------------------------- */
  //Main :
-$primary:  #0FB79B;
+$primary:  #252A31;
 $primary-opacified: rgba(15, 183, 155, 0.5);
-$navbar: linear-gradient(to right, #fefefe, #0FB79B);
+$navbar: #252A31;
 $h2card: #0FB79B;
 $body: #fbfbfb;
-$footer: #141E30;
+$footer: #252A31;
 $discount: #FFD10C;
 $home-text-shadow: #333333;
 $home-font-color: white;

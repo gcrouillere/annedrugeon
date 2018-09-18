@@ -1,7 +1,7 @@
 .h1-index {
   h1 {
     font-size: $font-size-h4;
-    margin: 0px;
+    margin: 20px 10px 0px 10px;
   }
   hr {
     margin: 5px 0px 10px 0px;
@@ -9,9 +9,9 @@
 }
 
 .h1-index.mobile {
-  margin: 0px 10px;
+  margin: 20px 10px 0px 10px;
   hr {
-    margin: 5px 0px 20px 0px;
+    margin: 5px 0px 10px 0px;
   }
 }
 

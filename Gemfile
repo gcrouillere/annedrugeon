@@ -82,6 +82,9 @@ gem 'gon'
 #Models internationalization
 gem 'mobility', '~> 0.7.5'
 
+#rangeslider
+gem 'jquery-ui-rails'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

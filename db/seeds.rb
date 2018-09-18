@@ -20,7 +20,7 @@ countries_classification = {
   "Outre-Mer 1": ["GF", "GP", "MQ", "YT", "MF", "PM", "BL"],
   "Outre-Mer 2": ["WF", "PF", "NC", "TF"],
   "UE": ["AT", "DE", "BE", "BG", "HR", "CY", "DK", "ES", "EE", "FI", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "CZ", "RO", "GB", "SK", "SI", "SE", "CH", "LI", "VA", "SM"],
-  "Eastern Europe Norvège and Maghreb": ["DZ", "NO", "MR", "EH", "MA", "TN", "LY", "BY", "BA", "MD", "ME", "AL", "MK"],
+  "Eastern Europe Norway and Maghreb": ["DZ", "NO", "MR", "EH", "MA", "TN", "LY", "BY", "BA", "MD", "ME", "AL", "MK"],
   "Rest of the world": ["ZZ"]
 }
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   scope do
-    resources :ceramiques, path: ENV['MODEL'], only: [:create, :index, :destroy, :show]
+    resources :ceramiques, path: 'céramiques', only: [:create, :index, :destroy, :show]
   end
 
   resources :orders, only: [:show, :create, :destroy] do
@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :create]
 
   resources :articles, only: [:new, :index, :show, :update, :create, :destroy]
+
+  resources :collections, only: [:index, :show]
 
   #Stages
   get '/stage_confirmation', to: 'lessons#stage_confirmation'

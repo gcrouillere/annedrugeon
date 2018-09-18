@@ -1,0 +1,51 @@
+<% if @ceramiques.present? %>
+      <div class="col-xs-12 col-lg-9 ceramique-list">
+        <% @ceramiques.each_with_index do |ceramique, index| %>
+          <div class="col-xs-6 col-sm-4 lighttheme-ceramiquecard-col">
+            <%= link_to ceramique_path(ceramique), title: "#{ceramique.name}", class: "cardlink-lighttheme" do %>
+              <div class="ceramiquecard-lighttheme">
+                <div class="img-container ceramique-front-image-<%=index%>">
+                  <style>
+                    .ceramique-front-image-<%=index%> {
+                      background-image: url(<%= cl_image_path ceramique.photos[0].path, quality: "auto" %>);
+                    }
+                    <% if ceramique.photos[1]%>
+                    .ceramique-front-image-<%=index%>:hover {
+                      <% if  cl_image_path ceramique.photos[1]%>
+                        background-image: url(<%= cl_image_path ceramique.photos[1].path, quality: "60" %>);
+                      <% end %>
+                    }
+                    <% end %>
+                  </style>
+                  <% if  ceramique.stock == 0%>
+                    <div class="ceramiques-card-circle soldout lighttheme-circle"><p>Epuisé</p></div>
+                  <% elsif ceramique.offer%>
+                    <% if ceramique.offer.discount > 0 %>
+                      <div class="ceramiques-card-circle discount-circle lighttheme-circle"><p>-<%= (ceramique.offer.discount * 100).to_i %>%</p></div>
+                    <% end %>
+                  <% end %>
+                </div>
+                <h2><%= ceramique.name.capitalize%></h2>
+                <% ceramique.offer ? discount =  ceramique.offer.discount : discount = 0 %>
+                <% ceramique.offer ? ondiscount =  "ondiscount" : ondiscount =  "" %>
+                <div class="prices-ceramiq-card-lighttheme">
+                  <h3 class="prix-index <%=ondiscount%>"><%= humanized_money(ceramique.price * (1 - discount))%> <%= currency_symbol %></h3>
+                  <% if ceramique.offer %>
+                    <% if ceramique.offer.discount > 0 %>
+                      <h3 class="previous-price"><%= humanized_money(ceramique.price)%> <%= currency_symbol %></h3>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-xs-12 col-lg-9 no-ceramique-list">
+        <div class="no-ceramique">
+          <p><%=t(:no_product)%></p>
+          <%= link_to t(:all_products), ceramiques_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>

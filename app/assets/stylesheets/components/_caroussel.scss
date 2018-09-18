@@ -1,0 +1,38 @@
+.glyphicon {
+  top: calc(50% - 25px) !important;
+  img {
+    height: 50px;
+  }
+}
+
+// HOMEPAGE CAROUSEL
+.item1, .item2 {
+  height: calc(100vh - 183px);
+  @media all and (max-width: 768px) {
+    height: calc(100vh - 107px);
+  }
+  background-size: cover;
+}
+
+// COLLECTION SHOW CAROUSEL
+#carousel-collection-show {
+  .item {
+    height: 300px;
+    display: flex;
+    .carousel-banner {
+      height: 100%;
+      width: 33.33333%
+    }
+  }
+}
+
+// COLLECTION SHOW CAROUSEL
+#carousel-collection-show-mobile {
+  .item {
+    height: 300px;
+    .carousel-banner {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

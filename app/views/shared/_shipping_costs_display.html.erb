@@ -9,7 +9,7 @@
       $('.cost-details, .cost-details-mobile').attr("port-cost", port)
       $('.cost-details, .cost-details-mobile').attr("code-check", 0)
 
-      $('.payment-form #take_away-checkbox, .payment-form-mobile #take_away-checkbox-mobile').on('click', function(event) {
+      $('.order-form #take_away-checkbox, .order-form #take_away-checkbox-mobile').on('click', function(event) {
         if ($('h3.total_amount').hasClass('take_away-checked')) {
 
           $('.shipping-cost').css({'visibility':'visible'});

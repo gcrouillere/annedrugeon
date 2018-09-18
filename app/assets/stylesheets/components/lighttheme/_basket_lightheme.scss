@@ -2,8 +2,7 @@
   h1 {
     font-size: 34px;
     font-weight: 400;
-    margin-bottom: 30px;
-    margin-left: 20px;
+    margin: 20px 0 30px 20px;
   }
 }
 
@@ -95,11 +94,6 @@
 }
 
 @media all and (max-width: 700px) {
-  .page-top-lighttheme {
-    h1 {
-      margin-top: 0px;
-    }
-  }
   .container.lightthemecart {
     table {
       h5 {
@@ -133,18 +127,25 @@
   }
 }
 
-.pay-form-lighttheme.payment-form {
-  display: block;
+.form-and-buttons {
   float: right;
   text-align: center;
+  margin-bottom: 50px;
 }
 
-.pay-form-lighttheme-mobil.payment-form {
+.order-form {
+  margin-bottom: 20px;
+}
+
+.input-label-take-away {
   display: block;
-  text-align: center;
-  margin: 0 auto;
-  width: 83%;
-  .input-label-take-away {
-    display: block;
+  label {
+    font-weight: 100;
+    font-size: 13px;
   }
+}
+
+.form-and-buttons-mobile {
+  text-align: center;
+  margin: 0 auto 50px auto;
 }

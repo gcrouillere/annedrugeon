@@ -1,167 +1,114 @@
-<!-- Right Navigation LAPTOP -->
-<div class="navbar-laptop hidden-xs hidden-sm">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-brand", title: t(:navbar_home_link) do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
-  <% end %>
-
-  <!-- Different navigation if login or not -->
-  <% if user_signed_in? %>
-
-    <!-- Navbar right when connected -->
-    <div class="navbar-item">
-      <div class="nav-bar-list">
-        <% if current_user.admin %>
-          <%= link_to admin_root_path do %>
-            <span><i class="fa fa-unlock-alt"></i> Administration</span>
-          <% end %>
-        <% end %>
-        <%= link_to root_path do %>
-          <span><%=t(:home_page)%></span>
-        <% end %>
-        <%= link_to ceramiques_path do %>
-          <span><i class="fa fa-bars"></i> <%= t(:shop_link) %></span>
-        <% end %>
-        <%= link_to info_path do %>
-          <span><i class="fa fa-female"></i> <%= t(:info_link) %></span>
-        <% end %>
-        <%= link_to articles_path do %>
-          <span><i class="fas fa-pen-square"></i> <%= t(:blog_link) %></span>
-        <% end %>
-        <%= link_to new_lesson_path do %>
-          <span><i class="far fa-calendar-alt"></i> <%= t(:lesson_link) %></span>
-        <% end %>
-        <% if session[:order].present? %>
-          <% if Order.where(id: session[:order]).present? %>
-            <% if Order.where(id: session[:order]).first.state != "lost" %>
-              <%= link_to order_path(Order.find(session[:order])) do %>
-                <span><%= image_tag "cart.svg", class: "lightcart"%></span>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <div class="dropdown">
-          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-langages">
-            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "EN.svg", class: "flag"%>
-                <% end %>
-            </li>
-            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "FR.svg", class: "flag"%>
-                <% end %>
-            </li>
-          </ul>
-        </div>
-
-      </div>
+<div class="navbar-laptop-lighttheme nav-mobile">
+<!-- Language - Contact - Sign-in - Cart -->
+  <div class="nav-top-section">
+    <div class="nav-top-left">
+      <%= render 'shared/social_nav_footer' %>
     </div>
-
-  <% else %>
-    <div class="navbar-item">
-      <div class="nav-bar-list">
-        <%= link_to root_path do %>
-          <span><%=t(:home_page)%></span>
+    <div class="nav-top-right">
+      <div class="languages">
+        <%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+              <%= image_tag "EN.svg", class: "first-flag flag"%>
         <% end %>
-        <%= link_to ceramiques_path do %>
-          <span><i class="fa fa-bars"></i> <%= t(:shop_link) %></span>
+        <%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+          <%= image_tag "FR.svg", class: "flag"%>
         <% end %>
-        <%= link_to info_path do %>
-            <span><i class="fa fa-female"></i> <%= t(:info_link) %></span>
-        <% end %>
-        <%= link_to articles_path do %>
-          <span><i class="fas fa-pen-square"></i> <%= t(:blog_link) %></span>
-        <% end %>
-        <%= link_to new_lesson_path do %>
-          <span><i class="far fa-calendar-alt"></i> <%= t(:lesson_link) %></span>
-        <% end %>
-        <% if session[:order].present? %>
-          <% if Order.where(id: session[:order]).present? %>
-            <% if Order.where(id: session[:order]).first.state != "lost" %>
-              <%= link_to order_path(Order.find(session[:order])) do %>
-                <span><%= image_tag "cart.svg", class: "lightcart"%></span>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <div class="dropdown">
-          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-langages">
-            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "EN.svg", class: "flag"%>
-                <% end %>
-            </li>
-            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "FR.svg", class: "flag"%>
-                <% end %>
-            </li>
-          </ul>
-        </div>
       </div>
-    </div>
-  <% end %>
-  </div>
-
-<!-- Right Navigation MOBILE -->
-<div class="navbar-mobile hidden-md hidden-lg">
- <!-- Logo -->
-  <%= link_to root_path, class: "navbar-brand-mobile" do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
-  <% end %>
-
-  <div class="navbar-item">
-    <div class="list-mobile">
-      <%= link_to ceramiques_path do %>
-          <span><%= t(:shop_link_mobile) %></span>
+      <% if user_signed_in? %>
+        <div class="icone-bloc top-section-item laptop-item hidden-xs hidden-sm">
+        <%= link_to destroy_user_session_path, class: "top-nav-link", method: :delete do %>
+          <i class="fa fa-sign-out-alt"></i>
+          <span class="info-text info-text-3 "><%=t(:unconnect).upcase%></span>
         <% end %>
-      <%= link_to info_path do %>
-        <%= image_tag "info.svg", class: "infoimg"%>
+        </div>
+      <% else %>
+        <div class="icone-bloc top-section-item laptop-item hidden-xs hidden-sm">
+          <%= link_to new_user_session_path, title: "Accès à votre compte", class: "navbar-item navbar-link top-nav-link" do %>
+            <i class="fa fa-sign-in-alt"></i>
+            <span class="info-text info-text-3"><%=t(:connect).upcase%></span>
+          <% end %>
+        </div>
       <% end %>
-      <%= link_to articles_path do %>
-        <!-- <i class="fas fa-pen-square"></i> -->
-        <%= image_tag "blog.svg", class: "blogimg"%>
-      <% end %>
-      <%= link_to new_lesson_path do %>
-        <span><%= t(:lesson_link_mobile) %></span>
-      <% end %>
-
       <% if session[:order].present? %>
         <% if Order.where(id: session[:order]).present? %>
           <% if Order.where(id: session[:order]).first.state != "lost" %>
-            <%= link_to order_path(Order.find(session[:order])) do %>
-              <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+            <%= link_to order_path(Order.find(session[:order])), class: "top-section-item top-nav-link" do %>
+              <span><%= image_tag "whitecart.svg", class: "lightcart"%></span>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
-
-      <div class="dropdown">
-        <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-            <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+    </div>
+  </div>
+  <!-- Logo LAPTOP -->
+  <div class="navbar-logo hidden-xs">
+    <%= render 'shared/logo_pic' %>
+    <div class="nav-bar-list">
+      <div class="shop-dropdown">
+        <%= link_to ceramiques_path, class: "nav-link nav-link-no-hover" do %>
+          <span ><%=t(:shop_link).upcase%></span>
           <span class="caret"></span>
+        <% end %>
+        <div class="shop-sub-list">
+          <div class="nav-categories">
+            <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
+            <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>
+            <%= link_to "Objets", info_path, title: "Découvrir les objets d'Anne Drugeon" %>
+          </div>
+        </div>
+      </div>
+      <%= link_to info_path, title: "Présentation de la Tournée des Moustaches", class: "nav-link" do %>
+        <span>CREATRICE</span>
+      <% end %>
+    </div>
+    <div class="centered-logo">
+      <%= link_to root_path do  %>
+        <%= @logositepictag %>
+      <% end %>
+    </div>
+    <div class="nav-bar-list">
+      <%= link_to info_path, title: "Présentation de la Tournée des Moustaches", class: "nav-link third-link" do %>
+        <span>POINTS DE VENTE</span>
+      <% end %>
+      <a href="#" class="nav-link" id="lighttheme-filter-search">
+        <span class=""><%= image_tag "search.svg", class: "searchimg"%></span>
+      </a>
+    </div>
+  </div>
+  <!-- MOBILE -->
+  <div class="mobile-nav hidden-sm hidden-md hidden-lg ">
+    <div class="centered-logo-mobile ">
+      <%= link_to root_path do  %>
+        <%= @logositepictag %>
+      <% end %>
+    </div>
+    <div class="menus">
+      <div class="nav-bar-list">
+        <div class="shop-dropdown">
+          <div class="nav-link nav-link-no-hover">
+            <span ><%=t(:shop_link).upcase%></span>
+            <span class="caret"></span>
+          </div>
+          <div class="shop-sub-list">
+            <div class="nav-categories">
+              <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
+              <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>
+              <%= link_to "Objets", info_path, title: "Découvrir les objets d'Anne Drugeon" %>
+              <%= link_to "Boutique", ceramiques_path, title: "Tous les produits'Anne Drugeon" %>
+            </div>
+          </div>
+        </div>
+        <%= link_to info_path, title: "Présentation de la Tournée des Moustaches", class: "nav-link" do %>
+          <span>CREATRICE</span>
+        <% end %>
+      </div>
+      <div class="nav-bar-list">
+        <%= link_to info_path, title: "Présentation de la Tournée des Moustaches", class: "nav-link" do %>
+          <span>POINTS DE VENTE</span>
+        <% end %>
+        <a href="#" class="nav-link" id="lighttheme-filter-search-mobile">
+          <span class=""><%= image_tag "search.svg", class: "searchimg"%></span>
         </a>
-        <ul class="dropdown-menu dropdown-menu-langages">
-          <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
-                <%= image_tag "EN.svg", class: "flag"%>
-              <% end %>
-          </li>
-          <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-                <%= image_tag "FR.svg", class: "flag"%>
-              <% end %>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
-
 </div>

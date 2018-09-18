@@ -1,44 +1,41 @@
 <div id="footer">
-  <div class="contact-default">
-    <a href="https://www.google.fr/maps/place/<%=ENV['ADDRESS']%>" target="blank">
-      <div class="icone-bloc">
-        <i class="fa fa-map"></i>
-        <h6 class="info-text hidden-xs"><%=ENV['ADDRESS'].gsub('+',' ')%></h6>
+  <div class="container">
+    <div class="row">
+      <div class="footer-infos col-xs-12 col-md-4">
+        <h2><%=t(:infos)%></h2>
+<!--         <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, class: "top-nav-link", method: :delete do %>
+            <span class="info-text info-text-3"><%=t(:unconnect)%></span>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, title: "Accès à votre compte", class: "navbar-item navbar-link top-nav-link" do %>
+            <span class="info-text info-text-3"><%=t(:connect)%></span>
+          <% end %>
+        <% end %> -->
+        <% if user_signed_in? %>
+          <% if current_user.admin %>
+            <%= link_to admin_root_path do %>
+              <span>Administration</span>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= link_to t(:product_return), info_path %>
+        <%= link_to t(:deliveries), info_path %>
+        <%= link_to t(:cgv), cgv_path %>
+        <%= link_to t(:legal), legal_path %>
+        <%= link_to t(:contact), contact_path %>
       </div>
-    </a>
-    <div class="icone-bloc">
-      <i class="fa fa-envelope"></i>
-      <h6 class="info-text middle-text info-text-1"> <%= link_to "#{ENV['EMAIL']}",  "mailto:#{ENV['EMAIL']}"%></h6>
-    </div>
-    <div class="icone-bloc">
-      <i class="fa fa-phone"></i>
-      <h6 class="info-text info-text-2"><%=ENV['TELEPHONE']%></h6>
-    </div>
-    <% if user_signed_in? %>
-      <div class="icone-bloc">
-        <i class="fa fa-sign-out-alt"></i>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <h6 class="info-text info-text-3"><%=t(:unconnect)%></h6>
+      <div class="newsletter-subscribe col-xs-12 col-md-8">
+        <h2><%= t(:new_and_updates).upcase%></h2>
+        <p><%=t(:yes_i_want)%></p>
+        <%= render 'shared/subscribe' %>
+        <%= render 'shared/social_nav_footer' %>
+      </div>
+      <div class="mylink">
+        <%= link_to @dev_redirection || session[:dev_redirection_default], title: "Créez votre boutique en ligne avec l'agence de Guillaume Crouillere" do %>
+          <%= image_tag  'lego.svg', alt: "Guillaume Crouillere - Developpeur WEB indépendant"%>
       <% end %>
       </div>
-    <% else %>
-      <div class="icone-bloc">
-        <i class="fa fa-sign-in-alt"></i>
-      <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
-        <h6 class="info-text info-text-3"><%=t(:connect)%></h6>
-      <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div class="footer-center-infos">
-    <div class="center-bloc">
-      <%= link_to t(:cgv_short), cgv_path , class: "first-a" %>
-      <%= link_to t(:data), legal_path %>
     </div>
-  </div>
-  <div class="mylink">
-    <%= link_to @dev_redirection || session[:dev_redirection_default], title: "Créez votre boutique en ligne avec l'agence de Guillaume Crouillere" do %>
-      <%= image_tag  'lego.svg', alt: "Guillaume Crouillere - Developpeur WEB indépendant"%>
-  <% end %>
   </div>
 </div>

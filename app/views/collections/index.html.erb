@@ -1,0 +1,63 @@
+<% content_for(:title_tag) do %>
+
+<% end %>
+<% content_for(:description) do %>
+
+<% end %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="collection-h1">
+      <h1>Les collections</h1>
+      <hr>
+    </div>
+
+    <% if  @collections.present?%>
+      <% @collections.each do |collection|  %>
+        <div class="col-xs-6 col-sm-4 collection-container">
+          <%= link_to collection_path(collection) do %>
+          <div class="collection-image-container img<%= collection.id%>">
+               <style>
+                .img<%= collection.id%> {
+                  background-image: url(<%= cl_image_path collection.photos[0].path %>);
+                  background-size: cover;
+                  background-position-y: center;
+                  background-position-x: center;
+                }
+              </style>
+              <h2><%= collection.name%></h2>
+              <div class="collection-overlay"></div>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <h2 style="text-align: center; margin: 50px 30px; font-weight: 300">
+        <%= link_to t(:no_collection), ceramiques_path, class: "link-404"%>
+      </h2>
+    <% end %>
+
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "<%=t(:les_produits_de_machin, product:"#{ENV['MODEL']}", name: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}")%>",
+    "image": <%= raw @ceramiques.map {|ceramique| cl_image_path ceramique.photos[0].path}.to_json %>,
+    "brand": {
+      "@type": "Thing",
+      "name": "<%= t(:name, name:"#{ENV['LASTNAME'].capitalize}")%>"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "<%= humanized_money((@ceramiques.minimum(:price_cents) || 0) / 100) %>",
+      "highPrice": "<%= humanized_money((@ceramiques.maximum(:price_cents) || 0) / 100) %>",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+<% end %>

@@ -35,7 +35,9 @@
         <div class="content">
           <%= yield %>
         </div>
+        <%= render "shared/lighttheme_filter" %>
         <%= render 'shared/footer' %>
+        <%= render 'shared/algolia_search' %>
     <% elsif @active_theme.name == "lighttheme" %>
       <div class="body-<%=@active_theme.name%>">
         <%= render "shared/navbar_#{@active_theme.name}" %>

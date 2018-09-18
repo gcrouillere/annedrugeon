@@ -17,6 +17,7 @@ class Ceramique < ApplicationRecord
   end
 
   belongs_to :category
+  belongs_to :collection, required: false
   belongs_to :offer, required: false
   has_attachments :photos, maximum: 4, dependent: :destroy
   has_many :basketlines

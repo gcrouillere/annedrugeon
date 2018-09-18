@@ -19,7 +19,7 @@
     $('body').addClass('filter-opened');
   });
 
-  $('#close-search').on('click', function() {
+  $('#close-search, #close-search-mobile').on('click', function() {
     $('#ceramique-filters-content-mobile').css({'top': '100vh'});
     $('#ceramique-filters-content-lighttheme').css({'top': '100vh'});
     $('#ceramique-filters-content-mobile-darktheme').css({'top': '100vh'});

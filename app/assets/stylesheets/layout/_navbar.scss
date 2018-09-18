@@ -1,176 +1,197 @@
 /* NAVBAR MOBILE */
 .content {
-  padding-top: 90px;
+  padding-top: 183px;
+  @media all and (max-width: 767px) {
+    padding-top: 107px;
+  }
+  transition: padding-top ease 0.3s;
+}
+.devise-container {
+  .content-devise {
+    margin-top: 175px;
+  }
 }
 .alert.alert-dismissible {
   position: fixed;
   width: 100%;
   z-index: 5;
-  top: 70px;
+  top: 183px;
 }
-.navbar-mobile {
+
+.navbar-laptop-lighttheme.nav-mobile {
   position: fixed;
   top: 0px;
   width: 100%;
-  z-index: 3;
-}
-.jumbotron {
-  margin-top: -20px;
-}
-.devise-container {
-  padding-top: 70px;
-}
-.navbar-laptop {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 3;
-}
-
-/* NAVBAR FIXE */
-// .content {
-//   padding-top: 20px;
-// }
-// .jumbotron {
-//   margin-top: -20px;
-// }
-
-/* Navbar laptop */
-.navbar-laptop {
+  z-index: 16;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: $navbar;
-  transition: all 0.3s ease;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-    /* Navbar logo */
-  .navbar-brand {
-    display: flex;
-    padding: 0px;
-    img {
-      display: flex;
-      flex: 1 0 auto;
-      margin-left: 30px;
-      height: 100%;
-    }
+}
+@media all and (min-width: 990px) {
+  .stage-container {
+    margin-top: -100px;
   }
 }
 
-  .fa-shopping-cart {
-    font-size: 22px;
-  }
-
-  .lightcart {
-    width: 20px;
-    top: -1px;
-    position: relative;
-  }
-
-  .flag {
-    width: 20px;
-  }
-
-/* Navbar mobile */
-.navbar-mobile {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: $navbar;
-  transition: all 0.3s ease;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* Navbar logo */
-  .navbar-brand-mobile {
+.navbar-laptop-lighttheme {
+  background: white;
+  .nav-top-section {
     display: flex;
-    padding: 0px;
-    img {
-      display: flex;
-      flex: 1 0 auto;
-      margin-left: 15px;
-      height: 30px;
-    }
-  }
-}
-
-.list-mobile {
-  .lightcart {
-    width: 17px;
-    top: -1px;
-    position: relative;
-  }
-  .infoimg {
-    width: 17px;
-    top: -1px;
-    position: relative;
-  }
-  .blogimg {
-    width: 19px;
-    top: -1px;
-    position: relative;
-  }
-  .flag {
-    width: 17px;
-  }
-}
-
-/* Navbar right items */
-.navbar-item {
-  cursor: pointer;
-
-  /* laptop */
-  .nav-bar-list {
-    display: flex;
-    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: $primary;
     a {
-        text-decoration: none !important;
-        color: black !important;
-        margin-right: 20px;
-        padding-bottom: 2px;
-         border-bottom: 1px solid transparent;
-      i {
-        color: black !important;
+      font-weight: 100;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .top-nav-link {
+      font-weight: 100;
+    }
+    i {
+      font-weight: 14px;
+    }
+    .top-section-item {
+      margin-right: 20px;
+    }
+    .nav-top-left {
+      display: flex;
+      align-items: center;
+      z-index: 2;
+      .social-buttons-contact {
+        a {
+          font-size: 17px;
+        }
+        .center-social-link {
+          margin: 0 10px;
+        }
       }
     }
-    a:hover {
-      border-bottom: 1px solid black;
+    .nav-top-right {
+      display: flex;
+      align-items: center;
+      z-index: 2;
+      .languages {
+        position: relative;
+        top: -1px;
+        @media all and (max-width: 768px) {
+          margin-right: 20px;
+        }
+        .first-flag {
+          margin-right: 20px;
+        }
+        img {
+          width: 20px;
+        }
+      }
+      .icone-bloc {
+        margin-left: 20px;
+      }
+      .top-section-item:last-child {
+        margin-right: 0px;
+      }
+    }
+    .icone-bloc {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 5px;
+      }
     }
   }
-  /* mobile */
-  .list-mobile {
+  .navbar-logo {
     display: flex;
-    list-style: none;
-    a {
-      text-decoration: none !important;
-      color: black !important;
-      margin-right: 15px;
-    }
-    span {
-     font-size: 13px;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    .centered-logo img {
+      height: 100px;
     }
   }
+  .nav-bar-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav-link {
+      font-size: 14px;
+      font-weight: 400;
+      color: $primary;
+      text-decoration: none !important;
+      padding: 0 20px 2px 20px;
+      display: block;
+      &:first-child {
+        border-right: 1px solid black;
+      }
+      i {
+        color: white !important;
+      }
+      @media all and (max-width: 768px) {
+        font-size: 13px;
+      }
+    }
+    .nav-link:hover {
+    }
+    .nav-link:hover.nav-link-no-hover:hover {
+    }
+  }
+}
+
+.lightcart {
+    width: 18px;
+    top: -1px;
+    position: relative;
 }
 
 .dropdown-menu.dropdown-menu-langages {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+  display: block;
   padding: 0;
   min-width: 0px;
-  right: 12px;
-  left: unset;
+  left: -21px;
+  top: 19px;
+  border: 1px solid rgb(228,85,78);
+  border-radius: 1px;
   a {
+    font-weight: 100;
     margin-right: 0px !important;
-    border-bottom: none;
     padding: 2px 20px;
   }
   a:hover {
-    border-bottom: none;
+    background: #f5f5f5;
   }
 }
 
-/* Optional class to fix the navbar on top */
-.navbar-fixed {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-  width: 100%;
+.dropdown.top-section-item {
+  top: -3px;
+}
+
+.dropdown.top-section-item:hover .dropdown-menu.dropdown-menu-langages{
+  visibility: visible;
+  opacity: 1;
+}
+
+#lighttheme-filter-search, #lighttheme-filter-search-mobile {
+  margin-right: 0px;
+  .searchimg {
+    width: 22px;
+    top: 0px;
+    position: relative;
+  }
+}
+
+.mobile-nav {
+  padding: 10px 0px 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .centered-logo-mobile {
+    flex: 1 0 auto;
+    justify-content: center;
+    display: flex;
+    img {
+      width: 65px;
+    }
+  }
 }

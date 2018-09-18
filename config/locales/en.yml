@@ -95,6 +95,7 @@ en:
   order_take_away: "Pick up your order in shop"
   cgv: "Terms of sale"
   cgv_short: "Terms of sale"
+  product_return: "Product return or exchange"
   data: "Data"
   thanks_product_order: "Thanks for your order, it will ship soon."
   comment:
@@ -118,7 +119,10 @@ en:
   back_to_shop_404: "Back to shop"
   payment: "Payment"
   delivery: "Package delivery"
+  deliveries: "Deliveries"
   delivery_lead_time: "Delivery by Colissimo within %{lead_time}, to following address:"
+  new_and_updates: "news and updates"
+  yes_i_want: "Yes, I want to be informed about sales, new collections and other events"
   contact_update: "UPDATE YOUR CONTACT INFORMATION"
   contact_update_mobile: "UPDATE YOUR CONTACT INFO"
   order_recover: "Pick up you order in shop"
@@ -127,6 +131,7 @@ en:
   news_letter_subscribe: "Subscribe to newsletter below"
   subscribe: "SUBSCRIBE"
   information: "Information"
+  infos: "INFO"
   see_products: "DISCOVER THESE PRODUCTS"
   zoom: "Adjust zoom level with mousewheel or touchpad"
   contact: "Contact"
@@ -134,6 +139,7 @@ en:
   first_last_name: "First name Last name"
   send_your_message: "Type your message here"
   send: "SEND"
+  no_collection: "No collection yet. Check out the products"
   activerecord:
     errors:
       messages:
@@ -158,6 +164,9 @@ en:
       offer:
         one: "Offer"
         other: "Offers"
+      collection:
+          one: "Collection"
+          other: "Collections"
       order:
         one: "Order"
         other: "Orders"
@@ -197,6 +206,9 @@ en:
         title: "Title"
         description: "Description"
         showcased: "On first page ?"
+      collection:
+        name: "Name"
+        description: "Description"
       order:
         state: "Status"
         ceramique: "Products"

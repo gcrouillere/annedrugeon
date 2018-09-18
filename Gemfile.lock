@@ -414,6 +414,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-fileupload-rails
   jquery-rails
+  jquery-ui-rails
   letter_opener
   listen (~> 3.0.5)
   mobility (~> 0.7.5)
