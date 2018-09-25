@@ -87,7 +87,7 @@
     {
       "@context": "http://schema.org",
       "@type": "ArtGallery",
-      "image": ["<%=request.original_url%><%= image_path ENV['HOMEPIC']%>"],
+      "image": ["<%=request.original_url%><%= image_path ENV['HOMEPIC1']%>"],
       "@id": "<%=request.original_url%>",
       "name": "<%=t(:les_produits_de_machin, product:"#{ENV['MODEL']}", name: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}")%>",
       "address": {

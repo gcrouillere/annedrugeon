@@ -16,8 +16,16 @@ class User < ApplicationRecord
   validates_acceptance_of :consented, message: "Doit être coché"
   attr_accessor :consented
 
-  has_attachment :productphoto
-  has_attachment :productphotomobile
+  has_attachment :productphoto1
+  has_attachment :productphoto2
+  has_attachment :productphoto3
+  has_attachment :productphotomobile1
+  has_attachment :productphotomobile2
+  has_attachment :productphotomobile3
+  has_attachment :info1photo
+  has_attachments :info2photos, maximum: 3
+  has_attachment :info3photo
+  has_attachments :info4photos, maximum: 3
   has_attachment :lessonphoto
   has_attachment :avatarphoto
   has_attachment :cityphoto

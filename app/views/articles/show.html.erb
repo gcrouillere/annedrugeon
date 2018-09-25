@@ -103,7 +103,7 @@
     "name": "<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
     "logo": {
       "@type": "ImageObject",
-      "url": "<%=request.original_url%><%= image_path ENV['HOMEPIC']%>"
+      "url": "<%=request.original_url%><%= image_path ENV['HOMEPIC1']%>"
     }
   },
   "description": "<%= sanitize(truncate(@article.content.gsub("\r","").gsub("\n","").gsub("#",""), length: 200)) %>"

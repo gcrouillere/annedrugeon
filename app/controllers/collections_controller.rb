@@ -11,7 +11,7 @@ class CollectionsController < ApplicationController
   def show
     @dev_redirection = "https://www.creermonecommerce.fr/realisations"
     @collection = Collection.find(params[:id])
-    @photos_by_3 = @collection.photos.in_groups_of(3)
+    @photos_by_3 = @collection.photos.in_groups_of(3).map {|array| array.reject {|item| item == nil}}
     @ceramiques = @collection.ceramiques
     clean_orders
   end

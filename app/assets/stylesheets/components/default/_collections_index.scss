@@ -8,21 +8,34 @@
   }
 }
 
+.collections-container {
+  padding: 0 20px;
+  margin-bottom: 30px;
+}
+
 .collection-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  @media all and (max-width: 768px) {
+    padding: 0 10px;
+  }
 }
 
 .collection-image-container {
   height: 330px;
-  width: 330px;
+  @media all and (max-width: 768px) {
+    height: 200px;
+  }
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   padding: 40px;
+  @media all and (max-width: 768px) {
+   padding: 10px;
+  }
   h2 {
     text-align: center;
     font-size: 20px;
@@ -33,6 +46,11 @@
     opacity: 0;
     transform: translateY(40px);
     z-index: 2;
+    @media all and (max-width: 768px) {
+      opacity: 1;
+      transform: translateY(0px);
+      text-shadow: 1px 1px $primary;
+    }
   }
   .collection-overlay {
     background: $primary;
@@ -46,6 +64,10 @@
     bottom: 0;
     z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
     transition: opacity 0.3s ease;
+    @media all and (max-width: 768px) {
+      opacity: 1;
+      background: transparent;
+    }
   }
 }
 

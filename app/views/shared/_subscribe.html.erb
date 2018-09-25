@@ -1,7 +1,5 @@
-<% unless session[:email]%>
-  <form action="/user-subscribe" method="post" authenticity_token="true" class="subscribe-form">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <input type="text" name="user[email]" id="email" placeholder="<%=t(:email_adress)%>" class="subscribe-input">
-    <input type="submit" class="subscribe-submit" value="<%=t(:subscribe)%>">
-  </form>
-<% end %>
+<form action="/user-subscribe" method="post" authenticity_token="true" class="subscribe-form">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="user[email]" id="email" placeholder="<%=t(:email_adress)%>" class="subscribe-input">
+  <input type="submit" class="subscribe-submit" value="<%=t(:subscribe)%>">
+</form>

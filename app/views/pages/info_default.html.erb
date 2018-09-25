@@ -7,45 +7,160 @@
 
 <%= render 'shared/info_pics' %>
 
-<div class="container">
+ <div class="container">
   <div class="row">
 
   <!-- LAPTOP -->
     <div class="hidden-xs hidden-sm col-sm-12">
-      <div class="wrapper">
-        <%= photo_update('avatarphoto', 35, '', '', 15, '.avatarpic', "Mise à jour photo perso")%>
-        <%= @avatarpictag %>
-
+      <div class="wrapper-lighttheme">
+        <div class="wrapper-image-small image-1">
+          <%= photo_update('info1photo', 35, -13, '', '', '.info1photopic', "Mise à jour photo info 1")%>
+          <style>
+            .image-1 {
+              background-image: url(<%= @info1pictag %>);
+              background-size: cover;
+              background-position-y: center;
+              background-position-x: center;
+            }
+          </style>
+        </div>
+        <div class="top-texts">
         <% if user_signed_in? && current_user.admin %>
-          <% article_typing("info", "horizontal", "markdown1", "live-text1", "input1") %>
+          <% article_typing("info1-top", "vertical", "markdown1", "live-text1", "input1") %>
           <% @markdown = @markdown1 %>
           <%= render 'shared/articletyping' %>
+          <% article_typing("info1-bottom", "vertical", "markdown5", "live-text5", "input5") %>
+          <% @markdown = @markdown5 %>
+          <%= render 'shared/articletyping' %>
         <% else %>
-            <div id="live-text">
-              <% article_display("info", "horizontal") %>
-              <%= @markdown.html_safe %>
-            </div>
+          <div id="live-text" class="">
+            <% article_display("info1-top", "vertical") %>
+            <%= @markdown.html_safe %>
+          </div>
+          <div id="live-text" class="">
+            <% article_display("info1-bottom", "vertical") %>
+            <%= @markdown.html_safe %>
+          </div>
+        <% end %>
+        </div>
+      </div>
+
+      <div class="wrapper-lighttheme second-wrapper">
+        <% if user_signed_in? && current_user.admin %>
+          <% article_typing("info2", "horizontal", "markdown2", "live-text2", "input2") %>
+          <% @markdown = @markdown2 %>
+          <%= render 'shared/articletyping' %>
+        <% else %>
+          <div id="live-text" class="text-small">
+            <% article_display("info2", "horizontal") %>
+            <%= @markdown.html_safe %>
+          </div>
+        <% end %>
+        <div class="wrapper-image-large image-2">
+          <%= photo_update('info2photos', 35, 15, '', '', '.info2photopics', "Mise à jour photos info 2")%>
+          <% @info2pics.each_with_index do |photo, index| %>
+          <div class="image-2-<%=index%>"></div>
+            <style>
+              .image-2-<%=index%> {
+                background-image: url(<%= photo %>);
+                background-size: cover;
+                background-position-y: center;
+                background-position-x: center;
+                width: calc(100% / <%= @info2pics.size %>)
+              }
+            </style>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="wrapper-lighttheme third-wrapper">
+        <div class="wrapper-image-small image-3">
+          <%= photo_update('info3photo', 35, -13, '', '', '.info3photopic', "Mise à jour photo info 3")%>
+          <style>
+            .image-3 {
+              background-image: url(<%= @info3pictag %>);
+              background-size: cover;
+              background-position-y: center;
+              background-position-x: center;
+            }
+          </style>
+        </div>
+        <% if user_signed_in? && current_user.admin %>
+          <% article_typing("info3", "horizontal", "markdown3", "live-text3", "input3") %>
+          <% @markdown = @markdown3 %>
+          <%= render 'shared/articletyping' %>
+        <% else %>
+          <div id="live-text" class="text-large">
+            <% article_display("info3", "horizontal") %>
+            <%= @markdown.html_safe %>
+          </div>
         <% end %>
       </div>
 
-      <div class="localisation">
-        <%= photo_update('cityphoto', 15, '', '', 15, '.citypic', "Mise à jour photo ville")%>
-        <div class="img-city"><%= @citypictag%></div>
-        <div id="map"></div>
+      <div class="wrapper-lighttheme fourth-wrapper">
+        <% if user_signed_in? && current_user.admin %>
+          <% article_typing("info4", "vertical", "markdown4", "live-text4", "input4") %>
+          <% @markdown = @markdown4 %>
+          <%= render 'shared/articletyping' %>
+        <% else %>
+          <div id="live-text" class="text-small">
+            <% article_display("info4", "vertical") %>
+            <%= @markdown.html_safe %>
+          </div>
+        <% end %>
+        <div class="bottom-text-and-photo">
+          <div class="wrapper-image-large image-4">
+          <% @info4pics.each_with_index do |photo, index| %>
+          <div class="image-4-<%=index%>"></div>
+          <%= photo_update('info4photos', 35, 15, '', '', '.info4photopics', "Mise à jour photos info 4")%>
+            <style>
+              .image-4-<%=index%> {
+                background-image: url(<%= photo %>);
+                background-size: cover;
+                background-position-y: center;
+                background-position-x: center;
+                width: calc(100% / <%= @info4pics.size %>)
+              }
+            </style>
+          <% end %>
+        </div>
+        <div class="bottom-text">
+          <% if user_signed_in? && current_user.admin %>
+            <% article_typing("info6", "vertical", "markdown6", "live-text6", "input6") %>
+            <% @markdown = @markdown6 %>
+            <%= render 'shared/articletyping' %>
+          <% else %>
+            <div id="live-text" class="">
+              <% article_display("info6", "vertical") %>
+              <%= @markdown.html_safe %>
+            </div>
+          <% end %>
+        </div>
+        </div>
       </div>
-
     </div>
 
   <!-- MOBILE -->
    <div class="col-xs-12 hidden-md hidden-lg mobile-info">
-      <div class="wrapper-mobile">
-        <div class="img-avatar-mobile"><%= @avatarpictagmobile %></div>
+      <div class="wrapper-mobile-lightheme">
+        <div class="mobile-image-info"><%= cl_image_tag @info1pictag %></div>
+        <% article_display("info1", "horizontal") %>
         <%= @markdown.html_safe %>
       </div>
-
-      <div class="localisation-mobile">
-        <div class="img-city-mobile"><%= @citypictag%></div>
-        <div id="map-mobile"></div>
+      <div class="wrapper-mobile-lightheme">
+        <div class="mobile-image-info"><%= cl_image_tag @info2pictag %></div>
+        <% article_display("info2", "horizontal") %>
+        <%= @markdown.html_safe %>
+      </div>
+      <div class="wrapper-mobile-lightheme">
+        <div class="mobile-image-info"><%= cl_image_tag @info3pictag %></div>
+        <% article_display("info3", "horizontal") %>
+        <%= @markdown.html_safe %>
+      </div>
+      <div class="wrapper-mobile-lightheme">
+        <div class="mobile-image-info"><%= cl_image_tag @info4pictag %></div>
+        <% article_display("info4", "horizontal") %>
+        <%= @markdown.html_safe %>
       </div>
     </div>
 
@@ -53,41 +168,11 @@
 </div>
 
 <% content_for(:after_js) do %>
-  <script>
-   $(document).ready(function() {
-      var handler1 = Gmaps.build('Google');
-      handler1.buildMap({internal: {id: 'map'}}, function(){
-        markers1 = handler1.addMarkers([
-          {
-            lat: <%= ENV['LAT'].to_f %>,
-            lng: <%= ENV['LNG'].to_f %>,
-            infowindow: "<%= "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>"
-          }
-        ]);
-        handler1.bounds.extendWith(markers1);
-        handler1.getMap().setCenter({lat: <%= ENV['LAT'].to_f %>, lng: <%= ENV['LNG'].to_f %>});
-        handler1.getMap().setZoom(6);
-      });
-
-      var handler = Gmaps.build('Google');
-      handler.buildMap({internal: {id: 'map-mobile'}}, function(){
-        marker = handler.addMarkers([
-          {
-            lat: <%= ENV['LAT'].to_f %>,
-            lng: <%= ENV['LNG'].to_f %>
-          }
-        ]);
-        handler.bounds.extendWith(marker);
-        handler.getMap().setCenter({lat: <%= ENV['LAT'].to_f %>, lng: <%= ENV['LNG'].to_f %>});
-        handler.getMap().setZoom(6);
-      });
-    });
-  </script>
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "ArtGallery",
-      "image": ["<%=request.original_url%><%= image_path ENV['HOMEPIC']%>"],
+      "image": ["<%=request.original_url%><%= image_path ENV['HOMEPIC1']%>"],
       "@id": "<%=request.original_url%>",
       "name": "<%=t(:les_produits_de_machin, product:"#{ENV['MODEL']}", name: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}")%>",
       "address": {

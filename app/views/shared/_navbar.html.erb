@@ -43,7 +43,7 @@
   <div class="navbar-logo hidden-xs">
     <%= render 'shared/logo_pic' %>
     <div class="nav-bar-list">
-      <div class="shop-dropdown">
+      <div class="shop-dropdown shop-dropdown-laptop hidden-sm">
         <%= link_to ceramiques_path, class: "nav-link nav-link-no-hover" do %>
           <span ><%=t(:shop_link).upcase%></span>
           <span class="caret"></span>
@@ -53,6 +53,20 @@
             <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
             <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>
             <%= link_to "Objets", info_path, title: "Découvrir les objets d'Anne Drugeon" %>
+          </div>
+        </div>
+      </div>
+      <div class="shop-dropdown shop-dropdown-tablet hidden-lg">
+        <div class="nav-link nav-link-no-hover">
+          <span ><%=t(:shop_link).upcase%></span>
+          <span class="caret"></span>
+        </div>
+        <div class="shop-sub-list-mobile">
+          <div class="nav-categories">
+            <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
+            <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>
+            <%= link_to "Objets", info_path, title: "Découvrir les objets d'Anne Drugeon" %>
+            <%= link_to "Boutique", ceramiques_path, title: "Tous les produits'Anne Drugeon" %>
           </div>
         </div>
       </div>
@@ -88,7 +102,7 @@
             <span ><%=t(:shop_link).upcase%></span>
             <span class="caret"></span>
           </div>
-          <div class="shop-sub-list">
+          <div class="shop-sub-list-mobile">
             <div class="nav-categories">
               <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
               <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>

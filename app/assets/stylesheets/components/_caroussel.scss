@@ -1,3 +1,7 @@
+.carousel {
+  position: relative;
+}
+
 .glyphicon {
   top: calc(50% - 25px) !important;
   img {
@@ -6,11 +10,13 @@
 }
 
 // HOMEPAGE CAROUSEL
-.item1, .item2 {
+.item1, .item2, .item3 {
   height: calc(100vh - 183px);
-  @media all and (max-width: 768px) {
-    height: calc(100vh - 107px);
-  }
+  background-size: cover;
+}
+
+.item-mobile1, .item-mobile2, .item-mobile3 {
+  height: calc(100vh - 105px);
   background-size: cover;
 }
 
@@ -21,7 +27,6 @@
     display: flex;
     .carousel-banner {
       height: 100%;
-      width: 33.33333%
     }
   }
 }

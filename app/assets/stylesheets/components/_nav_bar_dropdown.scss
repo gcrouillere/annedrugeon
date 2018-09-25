@@ -39,17 +39,21 @@
   opacity: 0;
   transition: visibility 0s, opacity 0.3s ease;
   position: absolute;
-  background: white;
-  top: 30px;
+  background: transparent;
+  top: 21px;
   a {
     display: block;
-    color: black;
-    padding: 10px !important;
-    min-width: 140px;
+    color: white;
+    background: $primary;
+    padding: 15px;
+    margin: 2px;
+    min-width: 160px;
     width: max-content;
     text-align: center;
-    font-size: 12px;
+    border: 2px solid black;
     &:hover {
+      color: $primary;
+      background: white;
       text-shadow: 1px 1px 1px #ccc;
     }
   }

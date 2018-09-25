@@ -3,9 +3,6 @@ $(document).ready(function() {
   function changeNavContent() {
     if($(document).scrollTop() > 50) {
       $('.centered-logo').css({display: 'none'});
-      $('.navbar-logo').css({
-        padding: '10px',
-      });
       $('.third-link').css({
         borderLeft: '1px solid black'
       });
@@ -14,9 +11,6 @@ $(document).ready(function() {
       if ($('.alert.alert-dismissible')) {$('.alert.alert-dismissible').css("top", '70px');}
     } else {
       $('.centered-logo').css({display: 'block'});
-      $('.navbar-logo').css({
-        padding: '20px',
-      });
       $('.third-link').css({
         borderLeft: 'none'
       });

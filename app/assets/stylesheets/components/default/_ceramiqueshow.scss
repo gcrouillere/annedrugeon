@@ -197,9 +197,10 @@
 // MOBILE
   .head {
     margin-top: 35px;
+    padding: 0 10px;
     .social-buttons {
       position: absolute;
-      top: 3px;
+      top: 8px;
       right: 9px;
       font-size: 20px;
       .fa-facebook-square {
@@ -214,24 +215,22 @@
       }
     }
     .image-xs-sm {
-      margin-left: 10px;
-      margin-right: 10px;
       img {
         border-radius: $project-border-radius;
         width: 100%;
       }
     }
     h1 {
-      margin-left: 15px;
+      width: 100%;
       font-size:$font-size-h3;
-      margin: 10px 0px 20px 15px;
+      margin: 10px auto 20px auto;
     }
   }
   .other-imgs.other-mobile {
     margin-top: 10px;
     margin-bottom: 30px;
     .images-mobile {
-      margin-left: 10px;
+      padding: 0 10px;
       display: flex;
       justify-content: space-around;
       display: flex;
@@ -266,6 +265,7 @@
       width: 100%;
       margin-bottom: 20px;
       .description-bloc {
+        padding-top: 20px;
         border-top: 1px solid rgba(0,0,0,0.15)
       }
        p.description {
@@ -278,7 +278,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         h2 {
           margin: 0;
           font-size: $font-size-h4;

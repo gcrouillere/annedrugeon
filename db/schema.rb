@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_122509) do
+ActiveRecord::Schema.define(version: 2018_09_25_090058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,11 @@ ActiveRecord::Schema.define(version: 2018_09_16_122509) do
     t.integer "offer_id"
     t.integer "position"
     t.bigint "collection_id"
+    t.string "dimension"
+    t.string "material"
+    t.boolean "gold"
+    t.string "packing"
+    t.string "cleaning"
     t.index ["category_id"], name: "index_ceramiques_on_category_id"
     t.index ["collection_id"], name: "index_ceramiques_on_collection_id"
     t.index ["offer_id"], name: "index_ceramiques_on_offer_id"

@@ -192,6 +192,11 @@ fr:
         category: "Catégorie"
         price_cents: "Prix en cents d'€"
         weight: "Poids"
+        material: "Matériaux"
+        dimension: "Dimensions"
+        cleaning: "Entretien"
+        gold: "Or"
+        packing: "Emballage"
       category:
         name: "Nom"
       lesson:

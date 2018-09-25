@@ -5,6 +5,10 @@ class Ceramique < ApplicationRecord
   extend Mobility
   translates :name, type: :string, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
   translates :description, type: :text, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
+  translates :material, type: :text, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
+  translates :packing, type: :text, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
+  translates :cleaning, type: :text, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
+  translates :dimension, type: :text, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
 
   algoliasearch do
     add_attribute :translated_name_fr
@@ -28,10 +32,14 @@ class Ceramique < ApplicationRecord
   validates :category, presence: true
   validates :name, presence: true
   validates :description, presence: true
+  validates :material, presence: true
+  validates :packing, presence: true
+  validates :cleaning, presence: true
+  validates :dimension, presence: true
+
   validates :weight, presence: true, numericality: { greater_than: 0, less_than: 30001 , only_integer: true, message: 'Le poids doit être compris entre 1 et 30 000 grammes. Pas d\'expédition Colissimo possible en dehors de cette plage.' }
   validates :stock, presence: true, numericality: { only_integer: true , message:'Doit être un entier'}
   validates :price_cents, presence: true, numericality: { greater_than: 0 , message:'Doit être un entier supérieur à 0' }
-
 
   def to_param
     name_param = self.send(I18n.locale == :fr ? (name_fr.present? ? "name_fr" : (name_en.present? ? "name_en" : "name")) : (name_en.present? ? "name_en" : "name")) || ""

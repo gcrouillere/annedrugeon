@@ -28,6 +28,20 @@ $(document).ready(function() {
       $('#live-text4').html(html);
   });
 
+  $('#input5').keyup(function() {
+    var converter = new showdown.Converter(),
+    text = $(this).val(),
+    html = converter.makeHtml(text);
+      $('#live-text5').html(html);
+  });
+
+  $('#input6').keyup(function() {
+    var converter = new showdown.Converter(),
+    text = $(this).val(),
+    html = converter.makeHtml(text);
+      $('#live-text6').html(html);
+  });
+
   $('#article_title').keyup(function() {
     text = $(this).val(),
     $('#h1-live_article_title').html("<h1>" + text + "</h1>");

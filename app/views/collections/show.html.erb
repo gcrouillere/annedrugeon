@@ -5,6 +5,8 @@
 
 <% end %>
 
+<%= render 'shared/lighttheme_photo_loading'%>
+
 <div class="container">
   <div class="row">
     <div class="collection-h1">
@@ -35,6 +37,9 @@
             .photo<%= photo_index%> {
               background-image: url(<%= cl_image_path photo.path %>);
               background-size: cover;
+            }
+            .carousel-banner {
+              width: calc(100% / <%= photo_group.size %>)
             }
           </style>
         <% end %>

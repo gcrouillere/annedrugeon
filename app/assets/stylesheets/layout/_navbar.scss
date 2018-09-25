@@ -2,13 +2,13 @@
 .content {
   padding-top: 183px;
   @media all and (max-width: 767px) {
-    padding-top: 107px;
+    padding-top: 105px;
   }
   transition: padding-top ease 0.3s;
 }
 .devise-container {
   .content-devise {
-    margin-top: 175px;
+    margin-top: 210px;
   }
 }
 .alert.alert-dismissible {
@@ -103,9 +103,9 @@
     display: flex;
     justify-content: center;
     position: relative;
-    padding: 20px;
+    padding: 10px;
     .centered-logo img {
-      height: 100px;
+      height: 120px;
     }
   }
   .nav-bar-list {
@@ -126,7 +126,7 @@
         color: white !important;
       }
       @media all and (max-width: 768px) {
-        font-size: 13px;
+        font-size: 12px;
       }
     }
     .nav-link:hover {
@@ -184,14 +184,14 @@
 .mobile-nav {
   padding: 10px 0px 10px 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   .centered-logo-mobile {
     flex: 1 0 auto;
     justify-content: center;
     display: flex;
     img {
-      width: 65px;
+      width: 32px;
     }
   }
 }

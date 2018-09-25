@@ -12,13 +12,8 @@
               <li><label class="label-search"><input type="checkbox" name="categories[]" value="<%= category %>"><%= category.capitalize %></label></li>
             <% end %>
           </ul>
-
-          <p>
-            <label for="amount">Price range:</label>
-            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-          </p>
-          <div id="slider-range"></div>
-
+          <h3><%=t(:max_price)%></h3>
+          <input type="number" name="prix_max" min="0" class="prix">
         </div>
         <% if  params[:categories].present? || params[:prix_max].present? || params[:offer].present? || params[:search].present?%>
           <label class="label-search all"><input type="checkbox" name="all[]" value="all"><%=t(:display_all)%></label>

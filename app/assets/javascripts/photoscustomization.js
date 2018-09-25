@@ -7,18 +7,46 @@ $(document).ready(function() {
     $('.logopic .photo-button').removeClass('hidden');
   });
 
-  $('.homepicmobile .attachinary_container').on('click', function(e){
-    $('.homepicmobile .photo-button').removeClass('hidden');
+  $('.homepicmobile1 .attachinary_container').on('click', function(e){
+    $('.homepicmobile1 .photo-button').removeClass('hidden');
   });
-  $('.homepicmobile input').on('click', function(e){
-    $('.homepicmobile .photo-button').removeClass('hidden');
+  $('.homepicmobile1 input').on('click', function(e){
+    $('.homepicmobile1 .photo-button').removeClass('hidden');
   });
 
-  $('.homepic .attachinary_container').on('click', function(e){
-    $('.homepic .photo-button').removeClass('hidden');
+  $('.homepicmobile2 .attachinary_container').on('click', function(e){
+    $('.homepicmobile2 .photo-button').removeClass('hidden');
   });
-  $('.homepic input').on('click', function(e){
-    $('.homepic .photo-button').removeClass('hidden');
+  $('.homepicmobile2 input').on('click', function(e){
+    $('.homepicmobile2 .photo-button').removeClass('hidden');
+  });
+
+  $('.homepicmobile3 .attachinary_container').on('click', function(e){
+    $('.homepicmobile3 .photo-button').removeClass('hidden');
+  });
+  $('.homepicmobile3 input').on('click', function(e){
+    $('.homepicmobile3 .photo-button').removeClass('hidden');
+  });
+
+  $('.homepic1 .attachinary_container').on('click', function(e){
+    $('.homepic1 .photo-button').removeClass('hidden');
+  });
+  $('.homepic1 input').on('click', function(e){
+    $('.homepic1 .photo-button').removeClass('hidden');
+  });
+
+  $('.homepic2 .attachinary_container').on('click', function(e){
+    $('.homepic2 .photo-button').removeClass('hidden');
+  });
+  $('.homepic2 input').on('click', function(e){
+    $('.homepic2 .photo-button').removeClass('hidden');
+  });
+
+  $('.homepic3 .attachinary_container').on('click', function(e){
+    $('.homepic3 .photo-button').removeClass('hidden');
+  });
+  $('.homepic3 input').on('click', function(e){
+    $('.homepic3 .photo-button').removeClass('hidden');
   });
 
   $('.avatarpic .attachinary_container').on('click', function(e){
@@ -75,6 +103,34 @@ $(document).ready(function() {
   });
   $('.darktheme4photo input').on('click', function(e){
     $('.darktheme4photo .photo-button').removeClass('hidden');
+  });
+
+  $('.info1photopic .attachinary_container').on('click', function(e){
+    $('.info1photopic .photo-button').removeClass('hidden');
+  });
+  $('.info1photopic input').on('click', function(e){
+    $('.info1photopic .photo-button').removeClass('hidden');
+  });
+
+  $('.info2photopics .attachinary_container').on('click', function(e){
+    $('.info2photopics .photo-button').removeClass('hidden');
+  });
+  $('.info2photopics input').on('click', function(e){
+    $('.info2photopics .photo-button').removeClass('hidden');
+  });
+
+  $('.info3photopic .attachinary_container').on('click', function(e){
+    $('.info3photopic .photo-button').removeClass('hidden');
+  });
+  $('.info3photopic input').on('click', function(e){
+    $('.info3photopic .photo-button').removeClass('hidden');
+  });
+
+  $('.info4photopics .attachinary_container').on('click', function(e){
+    $('.info4photopics .photo-button').removeClass('hidden');
+  });
+  $('.info4photopics input').on('click', function(e){
+    $('.info4photopics .photo-button').removeClass('hidden');
   });
 
 });
