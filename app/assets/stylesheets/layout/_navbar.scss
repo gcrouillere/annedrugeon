@@ -118,16 +118,20 @@
       color: $primary;
       text-decoration: none !important;
       padding: 0 20px 2px 20px;
-      display: block;
-      &:first-child {
-        border-right: 1px solid black;
+      @media all and (max-width: 370px) {
+        padding: 0 11px 2px 15px;
       }
+      display: block;
       i {
         color: white !important;
       }
       @media all and (max-width: 768px) {
         font-size: 12px;
       }
+    }
+    .nav-link.link-with-bars {
+      border-right: 1px solid black;
+      border-left: 1px solid black;
     }
     .nav-link:hover {
     }

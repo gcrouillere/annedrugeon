@@ -1,9 +1,8 @@
-
 .contact-coord {
-
   display: flex;
   .coord {
     margin-left: 15px;
+    margin-top: 15px;
     label {
       color: white;
     }
@@ -32,27 +31,32 @@
       margin-left: 0px;
     }
   }
-  .subscribe-form {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    .subscribe-input {
-      padding: 15px 15px 15px 15px;
-      margin: 10px auto;
-      width: 80%;
-      border: 1px solid #bfbfbf;
-      font-size: 16px;
-      color: black;
-      font-weight: 100;
-    }
-    .textarea {
-      min-height: 150px;
-    }
-    .btn.btn-primary, .submit-lightheme-contact {
-      width: 80%;
-      margin: 10px auto;
-    }
+}
+
+.contact-coord .subscribe-form, .contact-form .subscribe-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  .subscribe-input {
+    padding: 15px 15px 15px 15px;
+    margin: 10px auto;
+    width: 80%;
+    border: 1px solid #bfbfbf;
+    font-size: 16px;
+    color: black;
+    font-weight: 100;
   }
+  .textarea {
+    min-height: 150px;
+  }
+  .btn.btn-primary, .submit-lightheme-contact {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+.contact-form {
+  padding: 15px !important;
 }
 
 .submit-lightheme-contact {
@@ -127,7 +131,7 @@
         width: 100%;
         background: white;
         position: absolute;
-        z-index: 3;
+        z-index: 1;
         bottom: -7px;
       }
     }

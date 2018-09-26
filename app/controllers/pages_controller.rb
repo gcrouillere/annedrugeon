@@ -22,7 +22,6 @@ class PagesController < ApplicationController
 
   def contact
     @dev_redirection = "https://www.creermonecommerce.fr/produits"
-    render "contact_#{@active_theme.name}"
   end
 
   def legal

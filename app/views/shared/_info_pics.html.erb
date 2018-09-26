@@ -1,3 +1,5 @@
+<% @avatarpictag = image_tag ENV['AVATAR'], class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}" %>
+
 <% @info1pictag = image_path ENV['INFO1'], class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}" %>
 
 <% @info2pics = ENV['INFO2'].split(',').map(&:strip).reject{|e| ['"', "[", "]", ", "].include?(e)}.map{|e| image_path e} %>
@@ -6,7 +8,16 @@
 
 <% @info4pics = ENV['INFO4'].split(',').map(&:strip).reject{|e| ['"', "[", "]", ", "].include?(e)}.map{|e| image_path e} %>
 
+<% @citypictag = image_tag ENV['CITY'], alt: "#{ENV['ADDRESS'].gsub(/[+]/, ' ')}, localisation de l'atelier de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
+
+<% @citypicpath = image_path ENV['CITY'] %>
+
 <% if @admin %>
+
+  <% if @admin.avatarphoto.present? %>
+    <% @avatarpictag = cl_image_tag @admin.avatarphoto.path, class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}"%>
+  <% end %>
+
 
   <% if @admin.info1photo.present? %>
     <% @info1pictag = cl_image_path @admin.info1photo.path, class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}"%>
@@ -22,6 +33,11 @@
 
   <% if @admin.info4photos.present? %>
     <% @info4pics = @admin.info4photos.map {|photo| cl_image_path photo.path} %>
+  <% end %>
+
+  <% if  @admin.cityphoto.present? %>
+    <% @citypictag = cl_image_tag(cl_image_path @admin.cityphoto.path, alt: "#{ENV['ADDRESS'].gsub(/[+]/, ' ')}, localisation de l'atelier de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}") %>
+      <% @citypicpath = @admin.cityphoto.path %>
   <% end %>
 
 <% end %>

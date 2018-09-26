@@ -70,8 +70,11 @@
           </div>
         </div>
       </div>
-      <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link" do %>
+      <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link link-with-bars" do %>
         <span>CREATRICE</span>
+      <% end %>
+      <%= link_to articles_path, title: "Contactez Anne Drugeon", class: "nav-link" do %>
+        <span>BLOG</span>
       <% end %>
     </div>
     <div class="centered-logo">
@@ -82,6 +85,9 @@
     <div class="nav-bar-list">
       <%= link_to points_de_vente_path, title: "La créatrice : Anne Drugeon", class: "nav-link third-link" do %>
         <span>POINTS DE VENTE</span>
+      <% end %>
+      <%= link_to contact_path, title: "Contactez Anne Drugeon", class: "nav-link link-with-bars" do %>
+        <span>CONTACT</span>
       <% end %>
       <a href="#" class="nav-link" id="lighttheme-filter-search">
         <span class=""><%= image_tag "search.svg", class: "searchimg"%></span>
@@ -111,13 +117,19 @@
             </div>
           </div>
         </div>
-        <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link" do %>
+        <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link link-with-bars" do %>
           <span>CREATRICE</span>
+        <% end %>
+        <%= link_to articles_path, title: "Contactez Anne Drugeon", class: "nav-link" do %>
+          <span>BLOG</span>
         <% end %>
       </div>
       <div class="nav-bar-list">
         <%= link_to points_de_vente_path, title: "La créatrice : Anne Drugeon", class: "nav-link" do %>
           <span>POINTS DE VENTE</span>
+        <% end %>
+        <%= link_to contact_path, title: "Contactez Anne Drugeon", class: "nav-link link-with-bars" do %>
+          <span>CONTACT</span>
         <% end %>
         <a href="#" class="nav-link" id="lighttheme-filter-search-mobile">
           <span class=""><%= image_tag "search.svg", class: "searchimg"%></span>

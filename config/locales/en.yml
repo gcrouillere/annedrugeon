@@ -38,7 +38,7 @@ en:
   new_lesson_description: "Blala to update."
   contact_description: "Blabal to update."
   blog_main_title: "%{name}'S BLOG"
-  blog_index_description: "Retrouvez les articles de %{name}"
+  blog_index_description: "Retrouvez les articles d' %{name}"
   new_lesson_title: "Book a course"
   home_description: "Blala to update"
   home_title: "Vente de produits en ligne"
