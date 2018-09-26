@@ -22,7 +22,7 @@
               <h4><%= full_country.translations[I18n.locale.to_s] || full_country.name%></h4>
               <% unless @order.lesson.present? %>
                 <%= link_to edit_user_registration_path do %>
-                  <div class="hidden-xs laptop-link-coord">
+                  <div class="hidden-xs btn btn-primary">
                     <%= t(:contact_update)%>
                   </div>
                   <div class="hidden-sm hidden-md hidden-lg mobile-link-coord">
@@ -70,15 +70,6 @@
                 </div>
               </div>
             <% end %>
-            <div class="payments-separator hidden-xs"></div>
-            <hr class="hidden-sm hidden-md hidden-lg">
-            <div class="paypal">
-              <%= form_tag order_payments_path(@order), id: "paypal-form" do %>
-                <div id="paypal-button"></div>
-                <%= hidden_field_tag "method", "paypal" %>
-              <% end %>
-              <div class="paypal-secure"><span><%=t(:secured_payment)%></span> <%= image_tag "paypal.svg", class: "paypal-logo"%></div>
-            </div>
           </div>
         </div>
       </div>

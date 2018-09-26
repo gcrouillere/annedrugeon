@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  permit_params :name
+  permit_params :name, :topcategory_id
   config.filters = false
   actions  :index, :new, :create, :destroy, :update, :edit
   menu priority: 2, url: -> { admin_categories_path(locale: I18n.locale) }
@@ -12,6 +12,7 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs "" do
       f.input :name
+      f.input :topcategory
     end
     f.actions
    end

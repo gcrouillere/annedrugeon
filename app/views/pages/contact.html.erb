@@ -51,7 +51,7 @@
 <div class="hidden-xs photos-and-maps">
   <div class="atelier">
     <%= photo_update('avatarphoto', '', '', '', 30, '.avatarpic', "Mise à jour photo perso")%>
-    <%= @avatarpictag %>
+    <%= @workshopictag %>
   </div>
   <div class="localisation-contact">
     <div class="city-img">
@@ -74,9 +74,9 @@
 
 <!-- MOBILE -->
 <div class="hidden-sm hidden-md hidden-lg photos-and-maps-mobile">
-  <%= image_tag "avatar.jpg", alt: "Atelier d'Hélène Raynal, céramiste à Saint Quentin La Poterie"%>
+  <%= @workshopictag %>
   <div id="map-mobile"></div>
-  <%= image_tag "city.jpg", alt: "Saint Quentin La Poterie. Village de céramistes."%>
+  <%= @citypictag %>
 </div>
 
 <% content_for(:after_js) do %>

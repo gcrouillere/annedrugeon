@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :retrieve_admin
   before_action :check_theme
   before_action :uniq_categories
+  before_action :uniq_top_categories_and_collections_and_price_range
   layout :layout_by_resource
   after_action :store_location
 
@@ -36,6 +37,11 @@ class ApplicationController < ActionController::Base
       ceramique.category.name
     end
     @uniq_categories = @uniq_categories.uniq.sort
+  end
+
+  def uniq_top_categories_and_collections_and_price_range
+    @uniq_top_categories = ::Ceramique.all.map {|ceramique| ceramique.category.topcategory}.uniq.sort
+    @uniq_collections = ::Ceramique.all.map {|ceramique| ceramique.collection}.uniq.sort
   end
 
   #DEVISE methods:

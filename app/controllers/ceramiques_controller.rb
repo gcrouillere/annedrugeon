@@ -11,11 +11,13 @@ class CeramiquesController < ApplicationController
       @ceramiques
     else
       filter_by_category if params[:categories].present?
+      filter_by_collection if params[:collections].present?
       filter_by_offer if params[:offer].present?
       filter_globally if params[:search].present?
       filter_by_price if params[:prix_max].present?
     end
     @ceramiques = Ceramique.where(id: @ceramiques.map(&:id)).order(position: :asc).order(updated_at: :desc)
+    h1_content
     @twitter_url = request.original_url.to_query('url')
     @facebookid = ""
     render "index_#{@active_theme.name}"
@@ -54,9 +56,14 @@ class CeramiquesController < ApplicationController
     @ceramiques = @ceramiques.joins(:category).merge(Category.i18n {name.matches_any(categories)})
   end
 
+  def filter_by_collection
+    collections = params[:collections].map {|collection| "%#{collection}%" }
+    @ceramiques = @ceramiques.joins(:collection).merge(Collection.i18n {name.matches_any(collections)})
+  end
+
   def filter_by_price
-    @ceramiques = @ceramiques.joins(:offer).where("price_cents * (1 - discount) <= ?", params[:prix_max].to_i * 100) +
-                  @ceramiques.where('offer_id IS NULL').where("price_cents <= ?", params[:prix_max].to_i * 100)
+    @ceramiques = @ceramiques.joins(:offer).where("price_cents * (1 - discount) <= ? AND price_cents * (1 - discount) >= ? ", params[:prix_max].to_i * 100, params[:prix_min].to_i * 100) +
+                  @ceramiques.where('offer_id IS NULL').where("price_cents <= ? AND price_cents >= ?", params[:prix_max].to_i * 100, params[:prix_min].to_i * 100)
   end
 
   def filter_by_offer
@@ -67,6 +74,21 @@ class CeramiquesController < ApplicationController
     raw_json = Ceramique.raw_search(params[:search])
     ceramiques_ids = raw_json["hits"].map {|hit| hit["objectID"].to_i}
     @ceramiques = @ceramiques.where(id: ceramiques_ids)
+  end
+
+  def h1_content
+    @h1_content = ""
+    if params[:topcategory].present?
+      if params[:categories].present?
+       @h1_content << "#{params[:topcategory].upcase} / #{params[:categories].map(&:capitalize).join(' - ')}"
+      else
+        @h1_content << "#{params[:topcategory].upcase}"
+      end
+    elsif params[:categories].present?
+      @h1_content << "#{params[:categories].map {|cat| Category.i18n.where(name: cat).first.topcategory.name.capitalize}.uniq.join(' - ')} / #{params[:categories].map(&:capitalize).join(' - ')}"
+    else
+      @h1_content << t(:main_index_h1)
+    end
   end
 end
 

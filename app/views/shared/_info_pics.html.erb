@@ -1,5 +1,7 @@
 <% @avatarpictag = image_tag ENV['AVATAR'], class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}" %>
 
+<% @workshopictag = image_tag ENV['WORKSHOP'], class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}" %>
+
 <% @info1pictag = image_path ENV['INFO1'], class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}" %>
 
 <% @info2pics = ENV['INFO2'].split(',').map(&:strip).reject{|e| ['"', "[", "]", ", "].include?(e)}.map{|e| image_path e} %>
@@ -18,6 +20,9 @@
     <% @avatarpictag = cl_image_tag @admin.avatarphoto.path, class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}"%>
   <% end %>
 
+  <% if @admin.workshopphoto.present? %>
+    <% @workshopictag = cl_image_tag @admin.workshopphoto.path, class: "img-avatar", alt: "Atelier d' #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
+  <% end %>
 
   <% if @admin.info1photo.present? %>
     <% @info1pictag = cl_image_path @admin.info1photo.path, class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}"%>

@@ -32,8 +32,10 @@ fr:
   unconnect: "Se déconnecter"
   remember_me: "Se souvenir de moi"
   creat_account: "Créer un compte"
-  index_description: "Site de e-commerce configurable. Créez votre compte et visualisez votre futur site de vente en ligne de vos produits."
+  index_description: "Les céramiques contemporaintes à vendre dans la boutique d'Anne Drugeon'"
   index_title: "Liste des produits à vendre"
+  index_description_collection: "Parcourez toutes les collections d'Anne Drugeon, en vente sur le site."
+  index_title_collection: "Les collections d'objets en céramique d'Anne Drugeon."
   new_lesson_description: "Module de prise de réservations. Offrez la possibilité à vos clients d'effectuer des stages ou des visites de votre atelier."
   new_lesson_title: "Réserver un stage"
   contact_description: "Vendez vos produits en ligne ! Site de e-commerce configurable. Affichez sur cette page des informations vous concernant : biographie, techniques utilisées."
@@ -49,11 +51,11 @@ fr:
   home_button: "Voir les produits"
   home_page: "Accueil"
   discount_percentage: " - Réduction de  %{amount} % "
-  main_index_h1: "Céramiques: les pièces uniques en vente sur le site"
+  main_index_h1: "Les céramiques uniques en vente sur le site"
   offer_products: ": les produits"
   unique_creation: "Les créations uniques"
   filter: "Filtrer"
-  max_price: "Prix max €"
+  max_price: "Prix €"
   price: "Prix"
   delivery: "Livraison sous"
   quantity: "Quantité"
@@ -74,6 +76,7 @@ fr:
   clic_on_calendar: "Cliquez sur l'icône calendrier pour sélectionner une date"
   clic_on_calendar_mobile: "Clic sur le calendrier"
   course_request: "demander une réservation"
+  continue_shopping: "Poursuivre vos achats"
   title: "Titre"
   address: "Adresse"
   comment:
@@ -105,7 +108,7 @@ fr:
   total_amount: "Montant Total"
   total_articles: "Total article(s)"
   total_port: "Frais de port"
-  stripe_paypal: "Payer par carte ou par Paypal :"
+  stripe_paypal: "Payer par carte :"
   secured_payment: "Paiement sécurisé par"
   cards: "Cartes acceptées"
   promo: "Code promo"
@@ -142,6 +145,7 @@ fr:
   shops: "Boutiques"
   ephemeral: "Ephémères"
   selling_point: "Points de vente"
+  creator: "CREATRICE"
   day:
     one: "Jour"
     other: "Jours"
@@ -167,6 +171,9 @@ fr:
         one: "Produit"
         other: "Produits"
       category:
+        one: "Sous-catégorie"
+        other: "Sous-catégories"
+      topcategory:
         one: "Catégorie"
         other: "Catégories"
       calendarupdate: "Bloquage de période"
@@ -205,6 +212,9 @@ fr:
         packing: "Emballage"
       category:
         name: "Nom"
+      topcategory:
+        name: "Nom"
+        category: "Sous-catégorie"
       lesson:
         start: "Début de la réservation"
         duration: "Durée en jours"

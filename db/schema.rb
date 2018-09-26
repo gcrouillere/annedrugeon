@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_090058) do
+ActiveRecord::Schema.define(version: 2018_09_26_115419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2018_09_25_090058) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "topcategory_id"
+    t.index ["topcategory_id"], name: "index_categories_on_topcategory_id"
   end
 
   create_table "ceramiques", id: :serial, force: :cascade do |t|
@@ -221,6 +223,12 @@ ActiveRecord::Schema.define(version: 2018_09_25_090058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "topcategories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -255,6 +263,7 @@ ActiveRecord::Schema.define(version: 2018_09_25_090058) do
   add_foreign_key "basketlines", "ceramiques"
   add_foreign_key "basketlines", "orders"
   add_foreign_key "calendarupdates", "lessons"
+  add_foreign_key "categories", "topcategories"
   add_foreign_key "ceramiques", "categories"
   add_foreign_key "ceramiques", "collections"
   add_foreign_key "ceramiques", "offers"

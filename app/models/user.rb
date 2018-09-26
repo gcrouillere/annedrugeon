@@ -36,6 +36,7 @@ class User < ApplicationRecord
   has_attachment :darktheme2photo
   has_attachment :darktheme3photo
   has_attachment :darktheme4photo
+  has_attachment :workshopphoto
 
   def display_name
     return self.email

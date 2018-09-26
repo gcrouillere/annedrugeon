@@ -51,8 +51,9 @@
         <div class="shop-sub-list">
           <div class="nav-categories">
             <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
-            <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>
-            <%= link_to "Objets", info_path, title: "Découvrir les objets d'Anne Drugeon" %>
+            <% @uniq_top_categories.each do |topcategory| %>
+               <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory} en vente sur le site" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -64,16 +65,17 @@
         <div class="shop-sub-list-mobile">
           <div class="nav-categories">
             <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
-            <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>
-            <%= link_to "Objets", info_path, title: "Découvrir les objets d'Anne Drugeon" %>
+            <% @uniq_top_categories.each do |topcategory| %>
+               <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory} en vente sur le site" %>
+            <% end %>
             <%= link_to "Boutique", ceramiques_path, title: "Tous les produits'Anne Drugeon" %>
           </div>
         </div>
       </div>
       <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link link-with-bars" do %>
-        <span>CREATRICE</span>
+        <span><%= t(:creator)%></span>
       <% end %>
-      <%= link_to articles_path, title: "Contactez Anne Drugeon", class: "nav-link" do %>
+      <%= link_to articles_path, title: "Découvrez le blog d'Anne Drugeon", class: "nav-link" do %>
         <span>BLOG</span>
       <% end %>
     </div>
@@ -84,7 +86,7 @@
     </div>
     <div class="nav-bar-list">
       <%= link_to points_de_vente_path, title: "La créatrice : Anne Drugeon", class: "nav-link third-link" do %>
-        <span>POINTS DE VENTE</span>
+        <span><%= t(:selling_point).upcase%></span>
       <% end %>
       <%= link_to contact_path, title: "Contactez Anne Drugeon", class: "nav-link link-with-bars" do %>
         <span>CONTACT</span>
@@ -111,22 +113,23 @@
           <div class="shop-sub-list-mobile">
             <div class="nav-categories">
               <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
-              <%= link_to "Bijoux", info_path, title: "Découvrir les bijoux d'Anne Drugeon" %>
-              <%= link_to "Objets", info_path, title: "Découvrir les objets d'Anne Drugeon" %>
+              <% @uniq_top_categories.each do |topcategory| %>
+                <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory} en vente sur le site" %>
+              <% end %>
               <%= link_to "Boutique", ceramiques_path, title: "Tous les produits'Anne Drugeon" %>
             </div>
           </div>
         </div>
         <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link link-with-bars" do %>
-          <span>CREATRICE</span>
+          <span><%= t(:creator)%></span>
         <% end %>
-        <%= link_to articles_path, title: "Contactez Anne Drugeon", class: "nav-link" do %>
+        <%= link_to articles_path, title: "Découvrez le blog d'Anne Drugeon", class: "nav-link" do %>
           <span>BLOG</span>
         <% end %>
       </div>
       <div class="nav-bar-list">
         <%= link_to points_de_vente_path, title: "La créatrice : Anne Drugeon", class: "nav-link" do %>
-          <span>POINTS DE VENTE</span>
+          <span><%= t(:selling_point).upcase%></span>
         <% end %>
         <%= link_to contact_path, title: "Contactez Anne Drugeon", class: "nav-link link-with-bars" do %>
           <span>CONTACT</span>

@@ -25,7 +25,7 @@
         <%= render 'shared/general_info_bubble' %>
       </div>
       <div class="collection-h1 hidden-md hidden-lg">
-        <h1><%=t(:main_index_h1)%></h1>
+        <h1><%= @h1_content %></h1>
         <hr>
       </div>
     <% elsif params[:offer].present? %>
@@ -35,7 +35,7 @@
       </div>
     <% else %>
       <div class="collection-h1 hidden-xs hidden-sm">
-        <h1><%=t(:main_index_h1)%></h1>
+        <h1><%= @h1_content %></h1>
         <hr>
       </div>
        <div class="collection-h1 hidden-md hidden-lg">
