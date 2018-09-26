@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :confirmation, :info, :contact, :google906057532e2dbb7e, :robots, :legal, :cgv]
+  skip_before_action :authenticate_user!, only: [:home, :confirmation, :info, :contact, :google906057532e2dbb7e, :robots, :legal, :cgv, :points_de_vente]
 
   def home
     @dev_redirection = "https://www.creermonecommerce.fr/"
@@ -13,6 +13,11 @@ class PagesController < ApplicationController
   def info
     @dev_redirection = "https://www.creermonecommerce.fr/#anchor-info"
     render "info_#{@active_theme.name}"
+  end
+
+  def points_de_vente
+    @dev_redirection = "https://www.creermonecommerce.fr/realisations"
+    @sellpoints = Article.where(name: "sellpoint").order(updated_at: :desc)
   end
 
   def contact

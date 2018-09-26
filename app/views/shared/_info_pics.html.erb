@@ -1,10 +1,10 @@
 <% @info1pictag = image_path ENV['INFO1'], class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}" %>
 
-<% @info2pics = ENV['INFO2'].split('"').reject{|e| ['"', "[", "]", ", "].include?(e)}.map{|e| image_path e} %>
+<% @info2pics = ENV['INFO2'].split(',').map(&:strip).reject{|e| ['"', "[", "]", ", "].include?(e)}.map{|e| image_path e} %>
 
 <% @info3pictag = image_path ENV['INFO3'], class: "img-avatar", alt: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} créateur de #{ENV['MODEL']}" %>
 
-<% @info4pics = ENV['INFO4'].split('"').reject{|e| ['"', "[", "]", ", "].include?(e)}.map{|e| image_path e} %>
+<% @info4pics = ENV['INFO4'].split(',').map(&:strip).reject{|e| ['"', "[", "]", ", "].include?(e)}.map{|e| image_path e} %>
 
 <% if @admin %>
 

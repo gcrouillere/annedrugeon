@@ -1,0 +1,28 @@
+.sellpoints-bloc {
+  h2 {
+    font-size: 20px;
+  }
+  textarea {
+    height: 36px !important;
+  }
+  #article_content {
+    min-height: 150px;
+  }
+}
+
+.sellpoints-list {
+  .sellpoint-content {
+    position: relative;
+    padding: 0 20px 40px 20px;
+    .sellpoint-delete-link {
+      position: absolute;
+      left: -20px;
+      top: 2px;
+    }
+    h3 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}

@@ -62,6 +62,7 @@ class UsersController < ApplicationController
       :country,
       :info1photo,
       :info3photo,
+      :sellpointphoto,
       info2photos: [],
       info4photos: [],
       homerightphotos: []

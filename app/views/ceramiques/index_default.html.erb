@@ -21,31 +21,28 @@
   <div class="row">
 <!-- INDEX H1 :  EITHER A DISCOUNT OFFER DIV, OR A SIMPLE H1 -->
     <% if @front_offer && params[:offer] == nil %>
-
       <div class="hidden-xs hidden-sm col-md-12 info-top">
         <%= render 'shared/general_info_bubble' %>
       </div>
-      <div class="h1-index mobile hidden-md hidden-lg">
+      <div class="collection-h1 hidden-md hidden-lg">
         <h1><%=t(:main_index_h1)%></h1>
         <hr>
       </div>
     <% elsif params[:offer].present? %>
-      <div class="h1-index hidden-xs hidden-sm">
+      <div class="collection-h1 hidden-xs hidden-sm">
         <h1> <%= @front_offer.title %> <%=t(:offer_products)%></h1>
         <hr>
       </div>
     <% else %>
-      <div class="h1-index hidden-xs hidden-sm">
+      <div class="collection-h1 hidden-xs hidden-sm">
         <h1><%=t(:main_index_h1)%></h1>
         <hr>
       </div>
-      <div class="h1-index mobile hidden-md hidden-lg">
+       <div class="collection-h1 hidden-md hidden-lg">
         <h1> <%= t(:unique_creation)%></h1>
         <hr>
       </div>
     <% end %>
-
-<!-- LAPTOP -->
 
     <%= render 'shared/default_filter' %>
 

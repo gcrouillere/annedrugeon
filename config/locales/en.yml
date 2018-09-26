@@ -139,6 +139,10 @@ en:
   first_last_name: "First name Last name"
   send_your_message: "Type your message here"
   send: "SEND"
+  creator: "The creator : Anne Drugeon"
+  shops: "Shops"
+  ephemeral: "Ephemeral"
+  selling_point: "Selling points"
   no_collection: "No collection yet. Check out the products"
   activerecord:
     errors:

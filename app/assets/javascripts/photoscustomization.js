@@ -133,4 +133,11 @@ $(document).ready(function() {
     $('.info4photopics .photo-button').removeClass('hidden');
   });
 
+  $('.sellpointphotopic .attachinary_container').on('click', function(e){
+    $('.sellpointphotopic .photo-button').removeClass('hidden');
+  });
+  $('.sellpointphotopic input').on('click', function(e){
+    $('.sellpointphotopic .photo-button').removeClass('hidden');
+  });
+
 });

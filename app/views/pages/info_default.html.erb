@@ -10,6 +10,11 @@
  <div class="container">
   <div class="row">
 
+    <div class="collection-h1">
+      <h1><%= t(:creator)%></h1>
+      <hr>
+    </div>
+
   <!-- LAPTOP -->
     <div class="hidden-xs hidden-sm col-sm-12">
       <div class="wrapper-lighttheme">
@@ -110,9 +115,9 @@
         <% end %>
         <div class="bottom-text-and-photo">
           <div class="wrapper-image-large image-4">
+            <%= photo_update('info4photos', 35, 15, '', '', '.info4photopics', "Mise à jour photos info 4")%>
           <% @info4pics.each_with_index do |photo, index| %>
           <div class="image-4-<%=index%>"></div>
-          <%= photo_update('info4photos', 35, 15, '', '', '.info4photopics', "Mise à jour photos info 4")%>
             <style>
               .image-4-<%=index%> {
                 background-image: url(<%= photo %>);
@@ -146,9 +151,11 @@
         <div class="mobile-image-info"><%= cl_image_tag @info1pictag %></div>
         <% article_display("info1", "horizontal") %>
         <%= @markdown.html_safe %>
+         <% article_display("info5", "horizontal") %>
+        <%= @markdown.html_safe %>
       </div>
       <div class="wrapper-mobile-lightheme">
-        <div class="mobile-image-info"><%= cl_image_tag @info2pictag %></div>
+        <div class="mobile-image-info"><%= cl_image_tag @info2pics[0] %></div>
         <% article_display("info2", "horizontal") %>
         <%= @markdown.html_safe %>
       </div>
@@ -158,8 +165,10 @@
         <%= @markdown.html_safe %>
       </div>
       <div class="wrapper-mobile-lightheme">
-        <div class="mobile-image-info"><%= cl_image_tag @info4pictag %></div>
+        <div class="mobile-image-info"><%= cl_image_tag @info4pics[0] %></div>
         <% article_display("info4", "horizontal") %>
+        <%= @markdown.html_safe %>
+        <% article_display("info6", "horizontal") %>
         <%= @markdown.html_safe %>
       </div>
     </div>

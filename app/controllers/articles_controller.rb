@@ -48,6 +48,8 @@ class ArticlesController < ApplicationController
       redirect_to articles_path
     elsif @article.name.include? "commentaire"
       redirect_to article_path(reference_article)
+    elsif @article.name.include? "sellpoint"
+      redirect_to points_de_vente_path
     else
       redirect_to request.referrer
     end

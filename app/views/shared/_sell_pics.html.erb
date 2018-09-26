@@ -1,0 +1,6 @@
+<% @sellpicpath = image_path ENV['SELLPIC'] %>
+<% if @admin %>
+  <% if  @admin.sellpointphoto.present? %>
+    <% @sellpicpath = cl_image_path @admin.sellpointphoto.path %>
+  <% end %>
+<% end %>

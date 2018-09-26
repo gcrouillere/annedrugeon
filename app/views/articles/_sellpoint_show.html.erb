@@ -1,0 +1,11 @@
+<div class="col-xs-12 col-sm-4">
+  <div class="sellpoint-content" data-sellpoint-id="<%= sellpoint.id %>">
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to sellpoint, method: :delete, class: "sellpoint-delete-link" do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
+    <% end %>
+    <h3><%= sellpoint.title %></h3>
+    <p><%= sellpoint.content.gsub(/\n/, '<br>').html_safe %></p>
+  </div>
+</div>

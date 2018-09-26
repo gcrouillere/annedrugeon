@@ -1,4 +1,8 @@
 // LAPTOP
+.wrapper-lighttheme.points-de-vente {
+  padding-top: 0px;
+}
+
 .wrapper-lighttheme {
   padding-top: 20px;
   display: flex;
@@ -90,6 +94,9 @@
 .wrapper-mobile-lightheme {
   position: relative;
   margin: 30px 10px 30px 10px;
+  &:first-child {
+    margin: 0px 10px 30px 10px;
+  }
   background: $card-background;
   padding: $padding-small;
   border-radius: 1px;

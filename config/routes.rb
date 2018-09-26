@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   #Pages
   get '/confirmation', to: 'pages#confirmation'
   get '/info', to: 'pages#info'
+  get '/points_de_vente', to: 'pages#points_de_vente'
   get '/contact', to: 'pages#contact'
   get '/cgv', to: 'pages#cgv'
   get '/legal', to: 'pages#legal'

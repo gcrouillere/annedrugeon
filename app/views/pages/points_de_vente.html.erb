@@ -1,0 +1,83 @@
+<% content_for(:description) do %>
+
+<% end %>
+<% content_for(:title_tag) do %>
+
+<% end %>
+
+<%= render 'shared/sell_pics' %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="collection-h1">
+      <h1><%= t(:selling_point)%></h1>
+      <hr>
+    </div>
+
+    <!-- LAPTOP -->
+    <div class="hidden-xs hidden-sm col-sm-12">
+      <div class="collection-h1">
+        <h2><%= t(:ephemeral)%></h2>
+        <hr>
+      </div>
+      <div class="wrapper-lighttheme points-de-vente">
+        <div class="wrapper-image-small image-1">
+          <%= photo_update('sellpointphoto', 35, -13, '', '', '.sellpointphotopic', "Mise à jour photo éphémères")%>
+          <style>
+            .image-1 {
+              background-image: url(<%= @sellpicpath %>);
+              background-size: cover;
+              background-position-y: center;
+              background-position-x: center;
+            }
+          </style>
+        </div>
+        <div class="sell-text">
+        <% if user_signed_in? && current_user.admin %>
+          <% article_typing("sellpoint-top", "vertical", "markdown1", "live-text1", "input1") %>
+          <% @markdown = @markdown1 %>
+          <%= render 'shared/articletyping' %>
+        <% else %>
+          <div id="live-text" class="">
+            <% article_display("sellpoint-top", "vertical") %>
+            <%= @markdown.html_safe %>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div class="col-xs-12 hidden-md hidden-lg mobile-info">
+      <div class="wrapper-mobile-lightheme">
+        <div class="mobile-image-info"><%= cl_image_tag @sellpicpath %></div>
+        <div class="collection-h1">
+          <h2><%= t(:ephemeral)%></h2>
+        </div>
+        <% article_display("sellpoint", "horizontal") %>
+        <%= @markdown.html_safe %>
+      </div>
+    </div>
+
+    <div class="collection-h1">
+      <h2><%= t(:shops)%></h2>
+      <hr>
+    </div>
+
+    <% if user_signed_in? && current_user.admin %>
+      <div class="sellpoints-bloc">
+        <%= render 'articles/sellpoint_form' %>
+      </div>
+    <% end %>
+
+    <% if @sellpoints.any? %>
+      <div class="sellpoints-list">
+        <% @sellpoints.each do |sellpoint| %>
+          <%= render 'articles/sellpoint_show', sellpoint: sellpoint %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
