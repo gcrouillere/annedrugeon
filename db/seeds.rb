@@ -9,7 +9,7 @@ prices = { "METRO": [495, 615, 700, 765, 865, 1315, 1920, 2730],
     "Outre-Mer 1": [930, 930, 1410, 1410, 1920, 2890, 4640, 10360],
     "Outre-Mer 2": [1120, 1120, 1680, 1680, 2960, 4960, 9690, 25000],
     "UE": [1230, 1230, 1505, 1505, 1680, 2150, 3550, 5900],
-    "Eastern Europe Norvège and Maghreb": [1640, 1640, 1960, 1960, 2140, 2750, 4550, 7100],
+    "Eastern Europe Norway and Maghreb": [1640, 1640, 1960, 1960, 2140, 2750, 4550, 7100],
     "Rest of the world": [2400, 2400, 2670, 2670, 3670, 5370, 10150, 16200]
 }
 
@@ -32,7 +32,6 @@ ISO3166::Country.countries.each do |country|
     if known_countries.include? country.alpha2
       countries_classification.each do |k,v|
         if countries_classification[k].include? country.alpha2
-          puts country.name
           ShippingCategory.create(name: country.name, alpha2: country.alpha2, weight: weight, price_cents: prices[k][index])
         end
       end
