@@ -32,6 +32,7 @@ ISO3166::Country.countries.each do |country|
     if known_countries.include? country.alpha2
       countries_classification.each do |k,v|
         if countries_classification[k].include? country.alpha2
+          puts country.name
           ShippingCategory.create(name: country.name, alpha2: country.alpha2, weight: weight, price_cents: prices[k][index])
         end
       end
