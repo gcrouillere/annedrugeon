@@ -2,7 +2,7 @@
   <div id="ceramique-filters-content">
     <h2><%= t(:filter) %></h2>
     <form action="/<%=ENV['MODEL']%>" method='get'>
-      <input type="search" id="aa-search-input" class="aa-input-search" placeholder="<%=t(:search_place_holder)%>" name="search" autocomplete="off" />
+      <input type="search" id="aa-search-input2" class="aa-input-search" placeholder="<%=t(:search_place_holder)%>" name="search" autocomplete="off" />
       <a href="https://www.algolia.com" class="lienalgolia" target="blank"><%= image_tag "algolia.png", class: "algolialogo", alt: "Lien vers Algolia"%></a>
       <div class="category-filter filter">
         <% @uniq_top_categories.each do |topcategory| %>

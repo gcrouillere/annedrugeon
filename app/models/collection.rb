@@ -5,10 +5,11 @@ class Collection < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    add_attribute :translated_name_fr
-    add_attribute :translated_name_en
-    add_attribute :translated_description_fr
-    add_attribute :translated_description_en
+    add_attribute :collection_photo_path
+    add_attribute :translated_collection_name_fr
+    add_attribute :translated_collection_name_en
+    add_attribute :translated_collection_description_fr
+    add_attribute :translated_collection_description_en
     attribute :name
   end
 
@@ -25,19 +26,23 @@ class Collection < ApplicationRecord
     [id, name_param.parameterize].join("-")
   end
 
-  def translated_name_fr
+  def collection_photo_path
+    self.photos[0].path
+  end
+
+  def translated_collection_name_fr
     self.name_fr
   end
 
-  def translated_name_en
+  def translated_collection_name_en
     self.name_en
   end
 
-  def translated_description_fr
+  def translated_collection_description_fr
     self.description_fr
   end
 
-  def translated_description_en
+  def translated_collection_description_en
     self.description_en
   end
 end

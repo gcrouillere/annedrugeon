@@ -5,31 +5,48 @@
 
   <!-- Initialize autocomplete menu -->
   <script>
-  var algoliaAPPID = String('<%=ENV['ALGOLIAPPID']%>')
-  var algoliasearchKey = String('<%=ENV['ALGOLISEARCHKEY']%>')
-  var client = algoliasearch(algoliaAPPID, algoliasearchKey);
-  var index = client.initIndex('Ceramique');
-  //initialize autocomplete on search input (ID selector must match)
-  autocomplete('#aa-search-input, #aa-search-input2',
-  { hint: false }, {
-      source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
-      //value to be displayed in input control after user's suggestion selection
-      displayKey: 'name',
-      //hash of templates used when rendering dataset
-      templates: {
-          //'suggestion' templating function used to render a single suggestion
-        suggestion: function(suggestion) {
-          if ("<%= I18n.locale %>" == "fr") {
-            return '<span>' + suggestion._highlightResult.translated_name_fr.value + '</span>'
-            + '<span>' + suggestion._highlightResult.translated_description_fr.value + '</span>'
-            +'<span>' + suggestion._highlightResult.translated_category_fr.value + '</span>';
-          } else {
-            return '<span>' + suggestion._highlightResult.translated_name_en.value + '</span>'
-            + '<span>' + suggestion._highlightResult.translated_description_en.value + '</span>'
-            +'<span>' + suggestion._highlightResult.translated_category_en.value + '</span>';
+    var algoliaAPPID = String('<%=ENV['ALGOLIAPPID']%>')
+    var algoliasearchKey = String('<%=ENV['ALGOLISEARCHKEY']%>')
+    var client = algoliasearch(algoliaAPPID, algoliasearchKey);
+    var ceramiques = client.initIndex('Ceramique');
+    var collections = client.initIndex('Collection');
+    //initialize autocomplete on search input (ID selector must match)
+
+    autocomplete('#aa-search-input, #aa-search-input2', {}, [
+        {
+          source: autocomplete.sources.hits(ceramiques, { hitsPerPage: 3 }),
+          displayKey: 'name',
+          templates: {
+            header: '<div class="aa-suggestions-category">Produits</div>',
+            suggestion: function(suggestion) {
+              if ("<%= I18n.locale %>" == "fr") {
+                return '<span>' + suggestion._highlightResult.translated_name_fr.value + '</span>'
+                + '<span>' + suggestion._highlightResult.translated_description_fr.value + '</span>'
+                +'<span>' + suggestion._highlightResult.translated_category_fr.value + '</span>';
+              } else {
+                return '<span>' + suggestion._highlightResult.translated_name_en.value + '</span>'
+                + '<span>' + suggestion._highlightResult.translated_description_en.value + '</span>'
+                +'<span>' + suggestion._highlightResult.translated_category_en.value + '</span>';
+              }
+            }
+          }
+        },
+        {
+          source: autocomplete.sources.hits(collections, { hitsPerPage: 3 }),
+          displayKey: 'name',
+          templates: {
+            header: '<div class="aa-suggestions-category">Collections</div>',
+            suggestion: function(suggestion) {
+              if ("<%= I18n.locale %>" == "fr") {
+                return '<span>' + suggestion._highlightResult.translated_collection_name_fr.value + '</span>'
+                + '<span>' + suggestion._highlightResult.translated_collection_description_fr.value + '</span>';
+              } else {
+                return '<span>' + suggestion._highlightResult.translated_collection_name_en.value + '</span>'
+                + '<span>' + suggestion._highlightResult.translated_collection_description_en.value + '</span>';
+              }
+            }
           }
         }
-      }
-  });
+    ]);
   </script>
 <% end %>
