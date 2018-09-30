@@ -87,7 +87,7 @@ class CeramiquesController < ApplicationController
         @h1_content << "#{params[:topcategory].upcase}"
       end
     elsif params[:categories].present?
-      @h1_content << "#{params[:categories].map {|cat| Category.i18n.where(name: cat).first.topcategory.name.capitalize}.uniq.join(' - ')} / #{params[:categories].map(&:capitalize).join(' - ')}"
+      @h1_content << "#{params[:categories].map {|cat| "#{Category.i18n.where(name: cat).first.topcategory.name.capitalize} / #{cat.capitalize}"}.uniq.join(' + ')}"
     else
       @h1_content << t(:main_index_h1)
     end

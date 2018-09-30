@@ -24,21 +24,21 @@
       <div class="hidden-xs hidden-sm col-md-12 info-top">
         <%= render 'shared/general_info_bubble' %>
       </div>
-      <div class="collection-h1 hidden-md hidden-lg">
+      <div class="collection-h1 ceramiques-index-h1 hidden-md hidden-lg">
         <h1><%= @h1_content %></h1>
         <hr>
       </div>
     <% elsif params[:offer].present? %>
-      <div class="collection-h1 hidden-xs hidden-sm">
+      <div class="collection-h1 ceramiques-index-h1 hidden-xs hidden-sm">
         <h1> <%= @front_offer.title %> <%=t(:offer_products)%></h1>
         <hr>
       </div>
     <% else %>
-      <div class="collection-h1 hidden-xs hidden-sm">
+      <div class="collection-h1 ceramiques-index-h1 hidden-xs hidden-sm">
         <h1><%= @h1_content %></h1>
         <hr>
       </div>
-       <div class="collection-h1 hidden-md hidden-lg">
+       <div class="collection-h1 ceramiques-index-h1 hidden-md hidden-lg">
         <h1> <%= @h1_content %></h1>
         <hr>
       </div>
