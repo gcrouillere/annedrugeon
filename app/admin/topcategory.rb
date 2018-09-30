@@ -2,7 +2,7 @@ ActiveAdmin.register Topcategory do
   permit_params :name
   config.filters = false
   actions  :index, :new, :create, :destroy, :update, :edit
-  menu priority: 2, url: -> { admin_topcategories_path(locale: I18n.locale) }
+  menu priority: 2
 
   index do
     column :name

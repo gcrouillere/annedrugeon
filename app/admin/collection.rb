@@ -1,7 +1,7 @@
 ActiveAdmin.register Collection, as: 'Collections' do
   permit_params :name, :description, :ceramique_id, photos: []
   actions  :index, :destroy, :update, :edit, :show, :new, :create
-  menu priority: 3, url: -> { admin_collections_path(locale: I18n.locale) }
+  menu priority: 4
   config.filters = false
 
   index do

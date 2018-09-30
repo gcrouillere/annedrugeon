@@ -248,6 +248,9 @@ fr:
       calendarupdate:
         one: "Bloquer des périodes dans le calendrier"
         other: "Bloquer des périodes dans le calendrier"
+      promo:
+        one: "Code promo"
+        other: "Codes promos"
     dashboard: Tableau de bord
     dashboard_welcome:
       welcome: "Welcome to Active Admin. This is the default dashboard page."

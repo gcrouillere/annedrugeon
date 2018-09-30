@@ -2,7 +2,7 @@ ActiveAdmin.register Promo do
   permit_params :code, :percentage
   config.filters = false
   actions  :index, :new, :create, :destroy, :update, :edit
-  menu priority: 2
+  menu priority: 6
 
   index do
     column :code
