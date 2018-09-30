@@ -3,15 +3,6 @@
     <div class="row">
       <div class="footer-infos col-xs-12 col-md-4">
         <h2><%=t(:infos)%></h2>
-<!--         <% if user_signed_in? %>
-          <%= link_to destroy_user_session_path, class: "top-nav-link", method: :delete do %>
-            <span class="info-text info-text-3"><%=t(:unconnect)%></span>
-          <% end %>
-        <% else %>
-          <%= link_to new_user_session_path, title: "Accès à votre compte", class: "navbar-item navbar-link top-nav-link" do %>
-            <span class="info-text info-text-3"><%=t(:connect)%></span>
-          <% end %>
-        <% end %> -->
         <% if user_signed_in? %>
           <% if current_user.admin %>
             <%= link_to admin_root_path do %>

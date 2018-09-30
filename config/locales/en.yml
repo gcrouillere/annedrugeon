@@ -98,6 +98,7 @@ en:
   cgv_short: "Terms of sale"
   product_return: "Product return or exchange"
   data: "Data"
+  product_return: "Product return"
   thanks_product_order: "Thanks for your order, it will ship soon."
   comment:
     one: "Comment"

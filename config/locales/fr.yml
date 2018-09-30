@@ -120,7 +120,7 @@ fr:
   thanks_product_order: "Merci pour votre commande, votre colis va être expédié."
   payment: "Paiement"
   delivery: "Livraison du colis"
-  deliveries: "Deliveries"
+  deliveries: "Livraisons"
   delivery_lead_time: "Livraison via colissimo, sous %{lead_time}, à l'adresse suivante:"
   contact_update: "METTRE A JOUR VOS COORDONNEES"
   contact_update_mobile: "CHANGER VOS COORDONNEES"
