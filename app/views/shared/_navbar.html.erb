@@ -43,7 +43,7 @@
   <div class="navbar-logo hidden-xs">
     <%= render 'shared/logo_pic' %>
     <div class="nav-bar-list">
-      <div class="shop-dropdown shop-dropdown-laptop hidden-sm">
+      <div class="shop-dropdown shop-dropdown-laptop hidden-xs hidden-md hidden-sm">
         <%= link_to ceramiques_path, class: "nav-link nav-link-no-hover" do %>
           <span ><%=t(:shop_link).upcase%></span>
           <span class="caret"></span>
@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="shop-dropdown shop-dropdown-tablet hidden-lg">
+      <div class="shop-dropdown shop-dropdown-tablet hidden-xs hidden-md hidden-lg">
         <div class="nav-link nav-link-no-hover">
           <span ><%=t(:shop_link).upcase%></span>
           <span class="caret"></span>

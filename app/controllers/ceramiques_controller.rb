@@ -74,6 +74,7 @@ class CeramiquesController < ApplicationController
     raw_json = Ceramique.raw_search(params[:search])
     ceramiques_ids = raw_json["hits"].map {|hit| hit["objectID"].to_i}
     raw_json_collections = Collection.raw_search(params[:search])
+    binding.pry
     ceramiques_ids_from_collections = Ceramique.joins(:collection).where(collection_id: raw_json_collections["hits"].map {|hit| hit["objectID"].to_i}).map(&:id)
     @ceramiques = @ceramiques.where(id: ceramiques_ids + ceramiques_ids_from_collections)
   end

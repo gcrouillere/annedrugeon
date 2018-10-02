@@ -5,7 +5,7 @@
         <i class="fa fa-trash"></i>
       <% end %>
     <% end %>
-    <h3><%= sellpoint.title %></h3>
-    <p><%= sellpoint.content.gsub(/\n/, '<br>').html_safe %></p>
+    <h3><%= sellpoint.title if sellpoint.title %></h3>
+    <p><%= sellpoint.content.gsub(/\n/, '<br>').html_safe if sellpoint.content  %></p>
   </div>
 </div>

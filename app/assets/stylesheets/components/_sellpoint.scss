@@ -26,3 +26,121 @@
     }
   }
 }
+
+.ephemerals-list {
+  #article_title {
+    height: 36px !important;
+  }
+  #article_content {
+    height: 150px;
+  }
+}
+
+// LAPTOP
+.wrapper-lighttheme-sellpoint.points-de-vente {
+  padding-top: 0px;
+}
+
+.ephemeral {
+  display: flex;
+  @media all and (max-width: 576px) {
+    display: block;
+    padding: 20px;
+  }
+  position: relative;
+  margin: 20px 0;
+  .ephemeral-delete-link{
+    position: absolute;
+    right: 0px;
+    top: 20px;
+  }
+}
+
+.wrapper-lighttheme-sellpoint {
+  padding-top: 20px;
+  position: relative;
+  &:last-child {
+    margin-bottom: 30px;
+  }
+
+  .wrapper-image-large.image-2 {
+    width: 66%;
+    min-height: 300px;
+    margin-left: 40px;
+    display: flex;
+    position: relative;
+  }
+
+  .bottom-text-and-photo .wrapper-image-large {
+    width: 100%;
+    min-height: 300px;
+    margin-left: 40px;
+    display: flex;
+    position: relative;
+    flex: 1 0 auto;
+  }
+
+  .wrapper-image-small {
+    width: 33%;
+    min-height: 500px;
+    margin-right: 40px;
+    position: relative;
+    @media all and (max-width: 576px) {
+    width: 100%;
+    }
+  }
+
+  .top-texts {
+    width: 66%;
+    #live-text:first-child {
+      text-align: right;
+    }
+  }
+
+  .bottom-text-and-photo {
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+    .bottom-text {
+      width: 100%;
+      margin-left: 40px;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .text-large {
+    width: 66%;
+  }
+
+  .text-small {
+    width: 33%;
+  }
+
+  #live-text, #live-text1, #live-text2, #live-text3, #live-text4, #live-text5, #live-text6 {
+    h1 {
+      font-size: 35px;
+      margin: 11px 0px 20px 0px;
+    }
+    h2 {
+      font-weight: 400;
+      font-size: 28px;
+      margin: 19px 0px 0px 0px;
+    }
+    p {
+    margin: 8px 10px 10px 10px;
+    font-weight: $font-weight-p;
+    }
+    margin-bottom: 10px;
+    padding: $padding-small;
+  }
+  .article_content {
+    margin-top: 20px;
+    #input1, #input2, #input3, #input4, #input5, #input6 {
+      min-height: 330px;
+    }
+  }
+}

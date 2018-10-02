@@ -16,48 +16,34 @@
     </div>
 
     <!-- LAPTOP -->
-    <div class="hidden-xs hidden-sm col-sm-12">
+    <div class="col-xs-12 ephemerals-list">
       <div class="collection-h1">
         <h2><%= t(:ephemeral)%></h2>
         <hr>
       </div>
-      <div class="wrapper-lighttheme points-de-vente">
-        <div class="wrapper-image-small image-1">
-          <%= photo_update('sellpointphoto', 35, -13, '', '', '.sellpointphotopic', "Mise à jour photo éphémères")%>
-          <style>
-            .image-1 {
-              background-image: url(<%= @sellpicpath %>);
-              background-size: cover;
-              background-position-y: center;
-              background-position-x: center;
-            }
-          </style>
+      <% if user_signed_in? && current_user.admin %>
+        <%= render 'articles/ephemeral_form' %>
+        <div class="wrapper-lighttheme-sellpoint points-de-vente">
+          <% @ephemerals.each do |ephemeral|  %>
+            <div class="ephemeral">
+              <%= link_to ephemeral, method: :delete, class: "ephemeral-delete-link" do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+              <%= render 'articles/ephemeral_show', ephemeral: ephemeral %>
+            </div>
+          <% end %>
         </div>
-        <div class="sell-text">
-        <% if user_signed_in? && current_user.admin %>
-          <% article_typing("sellpoint-top", "vertical", "markdown1", "live-text1", "input1") %>
-          <% @markdown = @markdown1 %>
-          <%= render 'shared/articletyping' %>
-        <% else %>
-          <div id="live-text" class="">
-            <% article_display("sellpoint-top", "vertical") %>
-            <%= @markdown.html_safe %>
+      <% else %>
+        <% if @ephemerals.any? %>
+          <div class="wrapper-lighttheme-sellpoint points-de-vente">
+            <% @ephemerals.each do |ephemeral|  %>
+              <div class="ephemeral">
+                <%= render 'articles/ephemeral_show', ephemeral: ephemeral %>
+              </div>
+            <% end %>
           </div>
         <% end %>
-        </div>
-      </div>
-    </div>
-
-    <!-- MOBILE -->
-    <div class="col-xs-12 hidden-md hidden-lg mobile-info">
-      <div class="wrapper-mobile-lightheme">
-        <div class="mobile-image-info"><%= cl_image_tag @sellpicpath %></div>
-        <div class="collection-h1">
-          <h2><%= t(:ephemeral)%></h2>
-        </div>
-        <% article_display("sellpoint", "horizontal") %>
-        <%= @markdown.html_safe %>
-      </div>
+      <% end %>
     </div>
 
     <div class="collection-h1">

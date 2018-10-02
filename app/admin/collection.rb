@@ -32,8 +32,8 @@ ActiveAdmin.register Collection, as: 'Collections' do
     f.inputs "" do
       f.input :name
       f.input :description
-      f.input :photos, :as => :formtastic_attachinary, :hint => "Sélectionnez les photos du produit. Maintenez Ctrl appuyé pour en sélectionner plusieurs."
-      f.input :ceramiques, as: :check_boxes, :label => "Produits", :hint => "Sélectionnez les produits auxquels l'offre s'applique."
+      f.input :photos, :as => :formtastic_attachinary, :hint => "Sélectionnez les photos de la collection. Maintenez Ctrl appuyé pour en sélectionner plusieurs."
+      f.input :ceramiques, as: :check_boxes, :label => "Produits", :hint => "Sélectionnez les produits inclus dans la collection."
     end
     f.actions
   end

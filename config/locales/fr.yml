@@ -32,6 +32,7 @@ fr:
   unconnect: "Se déconnecter"
   remember_me: "Se souvenir de moi"
   creat_account: "Créer un compte"
+  legal: "Mentions légales"
   index_description: "Les céramiques contemporaintes à vendre dans la boutique d'Anne Drugeon'"
   index_title: "Liste des produits à vendre"
   index_description_collection: "Parcourez toutes les collections d'Anne Drugeon, en vente sur le site."
@@ -202,7 +203,7 @@ fr:
       ceramique:
         name: "Nom"
         description: "Description"
-        category: "Catégorie"
+        category: "Sous-catégorie"
         price_cents: "Prix en cents d'€"
         weight: "Poids"
         material: "Matériaux"

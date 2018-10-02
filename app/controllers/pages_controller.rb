@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   def points_de_vente
     @dev_redirection = "https://www.creermonecommerce.fr/realisations"
     @sellpoints = Article.where(name: "sellpoint").order(updated_at: :desc)
+    @ephemerals = Article.where(name: "ephemeral").order(updated_at: :desc)
   end
 
   def contact

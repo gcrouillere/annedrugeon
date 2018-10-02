@@ -23,4 +23,8 @@ $(document).ready(function() {
   $(document).scroll(function() {
     changeNavContent();
   });
+
+  $(document).ready(function() {
+    changeNavContent();
+  });
 })

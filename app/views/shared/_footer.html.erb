@@ -10,9 +10,9 @@
             <% end %>
           <% end %>
         <% end %>
-        <%= link_to t(:product_return), info_path %>
-        <%= link_to t(:deliveries), info_path %>
-        <%= link_to t(:cgv), cgv_path %>
+        <%= link_to t(:product_return), cgv_path(anchor: "product-return") %>
+        <%= link_to t(:deliveries), cgv_path(anchor: "delivery") %>
+        <%= link_to t(:cgv), cgv_path(anchor: "cgv") %>
         <%= link_to t(:legal), legal_path %>
         <%= link_to t(:contact), contact_path %>
       </div>

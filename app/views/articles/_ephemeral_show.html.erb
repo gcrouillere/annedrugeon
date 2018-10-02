@@ -1,0 +1,14 @@
+<div class="wrapper-image-small image-1 image-<%=ephemeral.id%>">
+  <style>
+    .image-<%=ephemeral.id%> {
+      background-image: url(<%= cl_image_path ephemeral.article_main_photo.path if ephemeral.article_main_photo %>);
+      background-size: cover;
+      background-position-y: center;
+      background-position-x: center;
+    }
+  </style>
+</div>
+<div class="sell-text">
+  <h3><%= ephemeral.title if ephemeral.title %></h3>
+  <p><%= ephemeral.content.gsub(/\n/, '<br>').html_safe if ephemeral.content %></p>
+</div>
