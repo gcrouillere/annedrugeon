@@ -34,24 +34,4 @@ class CollectionsController < ApplicationController
     end
   end
 
-  def filter_by_category
-    categories = params[:categories].map {|category| "%#{category}%" }
-    @ceramiques = @ceramiques.joins(:category).merge(Category.i18n {name.matches_any(categories)})
-  end
-
-  def filter_by_price
-    @ceramiques = @ceramiques.joins(:offer).where("price_cents * (1 - discount) <= ?", params[:prix_max].to_i * 100) +
-                  @ceramiques.where('offer_id IS NULL').where("price_cents <= ?", params[:prix_max].to_i * 100)
-  end
-
-  def filter_by_offer
-    @ceramiques = @ceramiques.where(offer: @front_offer)
-  end
-
-  def filter_globally
-    raw_json = Ceramique.raw_search(params[:search])
-    ceramiques_ids = raw_json["hits"].map {|hit| hit["objectID"].to_i}
-    @ceramiques = @ceramiques.where(id: ceramiques_ids)
-  end
-
 end
