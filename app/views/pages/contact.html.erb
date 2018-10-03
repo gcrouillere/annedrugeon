@@ -7,42 +7,7 @@
 
 <%= render 'shared/info_pics' %>
 
- <div class="contact-coord">
-  <div class="col-md-12 hidden-xs hidden-sm coord">
-    <% if user_signed_in? && current_user.admin %>
-      <% article_typing("contact", "vertical", "markdown1", "live-text1", "input1") %>
-      <% @markdown = @markdown1 %>
-      <div class="live-text">
-        <%= render 'shared/articletyping' %>
-      </div>
-    <% else %>
-      <div class="plain-text">
-        <% article_display("contact", "vertical") %>
-        <%= @markdown.html_safe %>
-        <div class="social-buttons-contact">
-          <a class="twitter-share-button" href="#"><i class="fab fa-twitter-square"></i></a>
-          <a id="facebook-contact" href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-xs-12 hidden-md hidden-lg coord">
-    <div class="live-text">
-      <%= @markdown.html_safe %>
-    </div>
-    <div class="social-buttons-contact">
-      <a class="twitter-share-button" href="#"><i class="fab fa-twitter-square"></i></a>
-      <a id="facebook-contact" href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-  <div class="hidden-xs col-sm-12 contact-form">
-    <%= render 'shared/subscribe_default' %>
-  </div>
-</div>
-
-<!-- MOBILE -->
+<!-- MOBILE FORM -->
 <div class="col-xs-12 hidden-sm hidden-md hidden-lg contact-form">
   <%= render 'shared/subscribe_default' %>
 </div>
@@ -50,8 +15,9 @@
 <!-- LAPTOP -->
 <div class="hidden-xs photos-and-maps">
   <div class="atelier">
-    <%= photo_update('avatarphoto', '', '', '', 30, '.avatarpic', "Mise à jour photo perso")%>
-    <%= @workshopictag %>
+    <div class="hidden-xs col-sm-12 contact-form">
+      <%= render 'shared/subscribe_default' %>
+    </div>
   </div>
   <div class="localisation-contact">
     <div class="city-img">
@@ -74,7 +40,6 @@
 
 <!-- MOBILE -->
 <div class="hidden-sm hidden-md hidden-lg photos-and-maps-mobile">
-  <%= @workshopictag %>
   <div id="map-mobile"></div>
   <%= @citypictag %>
 </div>

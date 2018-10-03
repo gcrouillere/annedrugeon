@@ -92,23 +92,27 @@
       margin: 0px;
     }
   }
-  .promo-with-percentage {
-    margin-bottom: 20px;
-    text-align: center;
-    position: relative;
-    .promo-detail {
-      color: #446BB0;
-      font-weight: 100;
-      position: absolute;
-      right: 15px;
-      bottom: -17px;
-      font-size: 13px;
+}
+
+.promo-with-percentage {
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+  .promo-detail {
+    color: #446BB0;
+    font-weight: 600;
+    position: absolute;
+    right: 28%;
+    bottom: -17px;
+    font-size: 13px;
+  }
+  .promo-bloc {
+    label {
+      font-weight: 600;
+      margin: 0;
     }
-    .promo-bloc {
-      label {
-        font-weight: 100;
-        margin: 0;
-      }
+    input {
+      border: 1px solid #ccc;
     }
   }
 }
