@@ -1,6 +1,6 @@
 /* NAVBAR MOBILE */
 .content {
-  padding-top: 183px;
+  padding-top: 203px;
   @media all and (max-width: 767px) {
     padding-top: 105px;
   }
@@ -15,7 +15,7 @@
   position: fixed;
   width: 100%;
   z-index: 5;
-  top: 183px;
+  top: 203px;
 }
 
 .navbar-laptop-lighttheme.nav-mobile {
@@ -103,7 +103,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    padding: 10px;
+    padding: 20px;
     .centered-logo img {
       height: 120px;
     }
@@ -113,7 +113,7 @@
     justify-content: center;
     align-items: center;
     .nav-link {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 400;
       color: $primary;
       text-decoration: none !important;
@@ -124,9 +124,6 @@
       display: block;
       i {
         color: white !important;
-      }
-      @media all and (max-width: 768px) {
-        font-size: 12px;
       }
     }
     .nav-link.link-with-bars {
