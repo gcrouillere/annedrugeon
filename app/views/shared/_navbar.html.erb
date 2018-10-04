@@ -52,7 +52,7 @@
           <div class="nav-categories">
             <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
             <% @uniq_top_categories.each do |topcategory| %>
-               <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory} en vente sur le site" %>
+               <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory.name} en vente sur le site" %>
             <% end %>
           </div>
         </div>
@@ -66,7 +66,7 @@
           <div class="nav-categories">
             <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
             <% @uniq_top_categories.each do |topcategory| %>
-               <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory} en vente sur le site" %>
+               <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory.name} en vente sur le site" %>
             <% end %>
             <%= link_to "Boutique", ceramiques_path, title: "Tous les produits'Anne Drugeon" %>
           </div>
@@ -114,7 +114,7 @@
             <div class="nav-categories">
               <%= link_to "Collections", collections_path, title: "Découvrir toutes les collections d'Anne Drugeon" %>
               <% @uniq_top_categories.each do |topcategory| %>
-                <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory} en vente sur le site" %>
+                <%= link_to "#{topcategory.name.capitalize}", ceramiques_path(categories: topcategory.categories.map(&:name), topcategory: topcategory.name), title: "découvrir les #{topcategory.name} en vente sur le site" %>
               <% end %>
               <%= link_to "Boutique", ceramiques_path, title: "Tous les produits'Anne Drugeon" %>
             </div>

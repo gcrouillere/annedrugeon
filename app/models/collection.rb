@@ -1,5 +1,5 @@
 class Collection < ApplicationRecord
-  has_many :ceramiques
+  has_many :ceramiques, dependent: :nullify
   has_attachments :photos, dependent: :destroy
 
   include AlgoliaSearch

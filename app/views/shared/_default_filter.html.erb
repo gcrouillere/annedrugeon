@@ -15,12 +15,14 @@
             <% end %>
           </ul>
         <% end %>
-        <h3>Collections</h3>
-        <ul>
-          <% @uniq_collections.each do |collection| %>
-            <li><label class="label-search"><input type="checkbox" name="collections[]" value="<%= collection.name %>"><%= collection.name.capitalize %></label></li>
-          <% end %>
-        </ul>
+        <% if @uniq_collections.present? %>
+          <h3>Collections</h3>
+          <ul>
+            <% @uniq_collections.each do |collection| %>
+              <li><label class="label-search"><input type="checkbox" name="collections[]" value="<%= collection.name %>"><%= collection.name.capitalize %></label></li>
+            <% end %>
+          </ul>
+        <% end %>
         <h3><%=t(:max_price)%></h3>
         <section class="range-slider">
           <span class="rangeValues"></span>

@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
 
   def uniq_top_categories_and_collections_and_price_range
     @uniq_top_categories = ::Ceramique.all.map {|ceramique| ceramique.category.topcategory}.uniq.sort
-    @uniq_collections = ::Ceramique.all.map {|ceramique| ceramique.collection if ceramique.collection}.uniq
+    @uniq_collections = ::Ceramique.all.select {|ceramique| ceramique.collection.present? }.uniq
   end
 
   #DEVISE methods:

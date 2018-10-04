@@ -61,8 +61,6 @@ ActiveAdmin.register Collection, as: 'Collections' do
     end
 
     def destroy
-      @collection = Collection.find(params[:id].to_i)
-      @collection.ceramiques.each {|ceramique| ceramique.update(collection: nil)}
       super do |format|
         flash[:notice] = "Collection supprimée"
         redirect_to admin_collections_path and return if resource.valid?
@@ -79,7 +77,7 @@ ActiveAdmin.register Collection, as: 'Collections' do
       ceramiques_ids_without_collection = Ceramique.all.map {|ceramique| ceramique.id} - ceramiques_ids_with_collection
       ceramiques_ids_without_collection.each do |id|
         if Ceramique.find(id).collection == current_collection
-          Ceramique.find(id).update(collection: nil)
+          Ceramique.find(id).update(collection_id: nil)
         end
       end
     end
