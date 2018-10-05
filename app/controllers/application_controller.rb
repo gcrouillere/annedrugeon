@@ -40,8 +40,8 @@ class ApplicationController < ActionController::Base
   end
 
   def uniq_top_categories_and_collections_and_price_range
-    @uniq_top_categories = ::Ceramique.all.map {|ceramique| ceramique.category.topcategory}.uniq.sort
-    @uniq_collections = ::Ceramique.all.select {|ceramique| ceramique.collection.present? }.uniq
+    @uniq_top_categories = ::Ceramique.all.map {|ceramique| ceramique.category.topcategory}.uniq
+    @uniq_collections = ::Collection.joins(:ceramiques).where("collection_id IS NOT NULL")
   end
 
   #DEVISE methods:

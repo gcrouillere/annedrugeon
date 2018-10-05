@@ -78,7 +78,9 @@
                 <% end %>
               </div>
               <hr>
-              <p class=""> <b>Collection :</b> <%= @ceramique.collection.name.capitalize %></p>
+              <% if @ceramique.collection.present? %>
+                <p class=""> <b>Collection :</b> <%= @ceramique.collection.name.capitalize %></p>
+              <% end %>
               <p class=""> <b><%= Ceramique.human_attribute_name("weight").capitalize %> :</b> <%= @ceramique.weight %> g</p>
               <p class=""> <b><%= Ceramique.human_attribute_name("dimension").capitalize %> :</b> <%= @ceramique.dimension %></p>
               <p class=""> <b><%= Ceramique.human_attribute_name("material").capitalize %> :</b> <%= @ceramique.material %></p>
@@ -179,7 +181,9 @@
             <% end %>
           </div>
           <div class="description-bloc">
-            <p class=""> <b>Collection :</b> <%= @ceramique.collection.name.capitalize %></p>
+            <% if @ceramique.collection.present? %>
+                <p class=""> <b>Collection :</b> <%= @ceramique.collection.name.capitalize %></p>
+            <% end %>
             <p class=""> <b><%= Ceramique.human_attribute_name("weight").capitalize %> :</b> <%= @ceramique.weight %> g</p>
             <p class=""> <b><%= Ceramique.human_attribute_name("dimension").capitalize %> :</b> <%= @ceramique.dimension %></p>
             <p class=""> <b><%= Ceramique.human_attribute_name("material").capitalize %> :</b> <%= @ceramique.material %></p>

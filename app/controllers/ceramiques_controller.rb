@@ -82,7 +82,7 @@ class CeramiquesController < ApplicationController
     @h1_content = ""
     if params[:topcategory].present?
       if params[:categories].present?
-       @h1_content << "#{params[:topcategory].upcase} / #{params[:categories].map(&:capitalize).join(' - ')}"
+       @h1_content << "#{params[:topcategory].upcase} / #{params[:categories].select{|cat_name| Ceramique.joins(:category).merge(Category.i18n {name.matches(cat_name)}).size > 0 }.map(&:capitalize).join(' - ')}"
       else
         @h1_content << "#{params[:topcategory].upcase}"
       end
