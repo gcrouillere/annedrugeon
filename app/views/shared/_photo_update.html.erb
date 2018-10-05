@@ -8,7 +8,7 @@
 </style>
 <% if user_signed_in? %>
   <% if current_user.admin  %>
-    <div class="photo-update-box <%= @classe[1..-1] %> hidden-xs hidden-sm hidden-md">
+    <div class="photo-update-box <%= @classe[1..-1] %> hidden-xs hidden-sm">
       <p><%= @texte %></p>
       <%= simple_form_for current_user do |f| %>
         <%= f.error_notification %>
