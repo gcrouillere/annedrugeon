@@ -21,7 +21,7 @@
             suggestion: function(suggestion) {
               if ("<%= I18n.locale %>" == "fr") {
                 return '<span>' + suggestion._highlightResult.translated_name_fr.value + '</span>'
-                + '<span>' + suggestion._highlightResult.translated_description_fr.value + '</span>'
+                + '<span>' + suggestion._snippetResult.translated_description_fr.value + '</span>'
                 +'<span>' + suggestion._highlightResult.translated_category_fr.value + '</span>';
               } else {
                 return '<span>' + suggestion._highlightResult.translated_name_en.value + '</span>'
@@ -39,7 +39,7 @@
             suggestion: function(suggestion) {
               if ("<%= I18n.locale %>" == "fr") {
                 return '<span>' + suggestion._highlightResult.translated_collection_name_fr.value + '</span>'
-                + '<span>' + suggestion._highlightResult.translated_collection_description_fr.value + '</span>';
+                + '<span>' + suggestion._snippetResult.translated_collection_description_fr.value + '</span>';
               } else {
                 return '<span>' + suggestion._highlightResult.translated_collection_name_en.value + '</span>'
                 + '<span>' + suggestion._highlightResult.translated_collection_description_en.value + '</span>';
