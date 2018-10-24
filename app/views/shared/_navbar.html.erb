@@ -44,7 +44,7 @@
     <%= render 'shared/logo_pic' %>
     <div class="nav-bar-list">
       <div class="shop-dropdown shop-dropdown-laptop hidden-xs hidden-sm">
-        <%= link_to ceramiques_path, class: "nav-link nav-link-no-hover" do %>
+        <%= link_to ceramiques_path, class: "nav-link nav-link-no-hover link-with-bars" do %>
           <span ><%=t(:shop_link).upcase%></span>
           <span class="caret"></span>
         <% end %>
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="shop-dropdown shop-dropdown-tablet hidden-xs hidden-md hidden-lg">
-        <div class="nav-link nav-link-no-hover">
+        <div class="nav-link nav-link-no-hover link-with-bars">
           <span ><%=t(:shop_link).upcase%></span>
           <span class="caret"></span>
         </div>
@@ -72,11 +72,8 @@
           </div>
         </div>
       </div>
-      <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link link-with-bars" do %>
+      <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link" do %>
         <span><%= t(:creator)%></span>
-      <% end %>
-      <%= link_to articles_path, title: "Découvrez le blog d'Anne Drugeon", class: "nav-link" do %>
-        <span>BLOG</span>
       <% end %>
     </div>
     <div class="centered-logo">
@@ -87,9 +84,6 @@
     <div class="nav-bar-list">
       <%= link_to points_de_vente_path, title: "La créatrice : Anne Drugeon", class: "nav-link third-link" do %>
         <span><%= t(:selling_point).upcase%></span>
-      <% end %>
-      <%= link_to contact_path, title: "Contactez Anne Drugeon", class: "nav-link link-with-bars" do %>
-        <span>CONTACT</span>
       <% end %>
       <a href="#" class="nav-link" id="lighttheme-filter-search">
         <span class=""><%= image_tag "search.svg", class: "searchimg"%></span>
@@ -106,7 +100,7 @@
     <div class="menus">
       <div class="nav-bar-list">
         <div class="shop-dropdown">
-          <div class="nav-link nav-link-no-hover">
+          <div class="nav-link nav-link-no-hover link-with-bars">
             <span ><%=t(:shop_link).upcase%></span>
             <span class="caret"></span>
           </div>
@@ -120,19 +114,13 @@
             </div>
           </div>
         </div>
-        <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link link-with-bars" do %>
+        <%= link_to info_path, title: "La créatrice : Anne Drugeon", class: "nav-link" do %>
           <span><%= t(:creator)%></span>
-        <% end %>
-        <%= link_to articles_path, title: "Découvrez le blog d'Anne Drugeon", class: "nav-link" do %>
-          <span>BLOG</span>
         <% end %>
       </div>
       <div class="nav-bar-list">
-        <%= link_to points_de_vente_path, title: "La créatrice : Anne Drugeon", class: "nav-link" do %>
+        <%= link_to points_de_vente_path, title: "La créatrice : Anne Drugeon", class: "nav-link link-with-bars" do %>
           <span><%= t(:selling_point).upcase%></span>
-        <% end %>
-        <%= link_to contact_path, title: "Contactez Anne Drugeon", class: "nav-link link-with-bars" do %>
-          <span>CONTACT</span>
         <% end %>
         <a href="#" class="nav-link" id="lighttheme-filter-search-mobile">
           <span class=""><%= image_tag "search.svg", class: "searchimg"%></span>

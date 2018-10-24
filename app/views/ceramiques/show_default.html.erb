@@ -12,10 +12,10 @@
 <div class="container">
 
 <!-- LAPTOP -->
-  <div class="hidden-xs hidden-sm">
+  <div class="hidden-xs">
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 product-details-and-description">
         <div class="product-show text center">
 
           <div class="product-show-half-top-wrapper-left">
@@ -38,14 +38,6 @@
                 <img class="img-front <%= classe %> " id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto"%>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
               </div>
 
-            </div>
-            <div class="newsletter-in-product">
-              <div class="filling-bloc"></div>
-              <div class="newsletter-subscribe">
-                <h2><%= t(:new_and_updates).upcase%></h2>
-                <p><%=t(:yes_i_want)%></p>
-                <%= render 'shared/subscribe' %>
-              </div>
             </div>
           </div>
 
@@ -84,14 +76,25 @@
               <p class=""> <b><%= Ceramique.human_attribute_name("weight").capitalize %> :</b> <%= @ceramique.weight %> g</p>
               <p class=""> <b><%= Ceramique.human_attribute_name("dimension").capitalize %> :</b> <%= @ceramique.dimension %></p>
               <p class=""> <b><%= Ceramique.human_attribute_name("material").capitalize %> :</b> <%= @ceramique.material %></p>
-              <p class=""> <b><%= Ceramique.human_attribute_name("cleaning").capitalize %> :</b> <%= @ceramique.cleaning %></p>
+              <% unless @ceramique.category.name.include? "ijou" %>
+                <p class=""> <b><%= Ceramique.human_attribute_name("cleaning").capitalize %> :</b> <%= @ceramique.cleaning %></p>
+              <% end %>
               <p class=""> <b><%= Ceramique.human_attribute_name("gold").capitalize %> :</b> <%= @ceramique.gold ? "Oui" : "Non" %></p>
               <p class=""> <b><%= Ceramique.human_attribute_name("packing").capitalize %> :</b> <%= @ceramique.packing %></p>
-              <p class="description"> <%= @ceramique.description.gsub(/\n/, '<br>').html_safe%> </p>
             </div>
           </div>
           </div>
-
+        </div>
+        <div class="product-description">
+          <p class="p-description"> <%= @ceramique.description.gsub(/\n/, '<br>').html_safe%></p>
+        </div>
+        <div class="newsletter-in-product">
+          <div class="filling-bloc"></div>
+          <div class="newsletter-subscribe">
+            <h2><%= t(:new_and_updates).upcase%></h2>
+            <p><%=t(:yes_i_want)%></p>
+            <%= render 'shared/subscribe' %>
+          </div>
         </div>
       </div>
     </div>
@@ -137,7 +140,7 @@
 
 <!-- MOBILE -->
   <div class="row">
-    <div class="col-xs-12 hidden-md hidden-lg">
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
 
       <div class="head">
         <%= facebook_share_id("facebooksharemobile") %>

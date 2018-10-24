@@ -235,6 +235,7 @@ fr:
       collection:
         name: "Nom"
         description: "Description"
+        top_photo: "Photo principale"
       order:
         state: "Statut"
         ceramique: "Produits"

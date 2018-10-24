@@ -63,6 +63,13 @@ $(document).ready(function() {
     $('.citypic .photo-button').removeClass('hidden');
   });
 
+  $('.mappic .attachinary_container').on('click', function(e){
+    $('.mappic .photo-button').removeClass('hidden');
+  });
+  $('.mappic input').on('click', function(e){
+    $('.mappic .photo-button').removeClass('hidden');
+  });
+
   $('.stagepic .attachinary_container').on('click', function(e){
     $('.stagepic .photo-button').removeClass('hidden');
   });

@@ -43,7 +43,7 @@
   }
 }
 
-.product-show-half-top-wrapper-left, .product-show-mobile {
+.product-show-half-top-wrapper-left, .product-show-mobile, .product-details-and-description {
   .subscribe-input {
     color: $primary;
     &::placeholder {
@@ -109,17 +109,15 @@
   }
 }
 
-.product-show-half-top-wrapper-left {
+.product-details-and-description {
   .newsletter-in-product {
-      display: flex;
-  }
-  .filling-bloc {
-    width: 100px;
+    display: flex;
   }
   .newsletter-subscribe {
     flex: 1 0 auto;
     text-align: center;
     padding: 10px;
+    margin-bottom: 35px;
     h2 {
       font-size: 22px;
     }

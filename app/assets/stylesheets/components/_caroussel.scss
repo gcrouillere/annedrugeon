@@ -24,7 +24,10 @@
 #carousel-collection-show {
   .item {
     height: 300px;
-    display: flex;
+    .three-photos-container {
+      display: flex;
+      height: 100%;
+    }
     .carousel-banner {
       height: 100%;
     }

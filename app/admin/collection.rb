@@ -1,5 +1,5 @@
 ActiveAdmin.register Collection, as: 'Collections' do
-  permit_params :name, :description, :ceramique_id, photos: []
+  permit_params :name, :description, :ceramique_id, :top_photo,  photos: []
   actions  :index, :destroy, :update, :edit, :show, :new, :create
   menu priority: 4
   config.filters = false
@@ -32,6 +32,7 @@ ActiveAdmin.register Collection, as: 'Collections' do
     f.inputs "" do
       f.input :name
       f.input :description
+      f.input :top_photo, :as => :formtastic_attachinary, :hint => "Photo principale, visbile dans la liste des collections."
       f.input :photos, :as => :formtastic_attachinary, :hint => "Sélectionnez les photos de la collection. Maintenez Ctrl appuyé pour en sélectionner plusieurs."
       f.input :ceramiques, as: :check_boxes, :label => "Produits", :hint => "Sélectionnez les produits inclus dans la collection."
     end

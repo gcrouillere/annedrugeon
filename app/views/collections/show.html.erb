@@ -31,18 +31,20 @@
   <div class="carousel-inner">
     <% @photos_by_3.each_with_index do |photo_group, index|  %>
       <div class="item <%= index == 0 ? "active" : "" %>">
-        <% photo_group.each_with_index do |photo, photo_index|  %>
-          <div class="carousel-banner photo<%= photo_index%>"></div>
-          <style>
-            .photo<%= photo_index%> {
-              background-image: url(<%= cl_image_path photo.path %>);
-              background-size: cover;
-            }
-            .carousel-banner {
-              width: calc(100% / <%= photo_group.size %>)
-            }
-          </style>
+        <div class="three-photos-container">
+          <% photo_group.each_with_index do |photo, photo_index|  %>
+            <div class="carousel-banner photo<%= "#{index}-#{photo_index}"%>"></div>
+            <style>
+              .photo<%= "#{index}-#{photo_index}" %> {
+                background-image: url(<%= cl_image_path photo.path %>);
+                background-size: cover;
+              }
+              .carousel-banner {
+                width: calc(100% / <%= photo_group.size %>)
+              }
+            </style>
         <% end %>
+        </div>
       </div>
     <% end %>
   </div>

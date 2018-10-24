@@ -64,6 +64,7 @@ class UsersController < ApplicationController
       :info3photo,
       :sellpointphoto,
       :workshopphoto,
+      :mapphoto,
       info2photos: [],
       info4photos: [],
       homerightphotos: []

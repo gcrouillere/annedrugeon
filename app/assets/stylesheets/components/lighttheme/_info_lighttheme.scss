@@ -30,7 +30,7 @@
 
   .wrapper-image-small {
     width: 33%;
-    min-height: 500px;
+    height: 400px;
     margin-right: 40px;
     position: relative;
   }
@@ -67,17 +67,18 @@
 
   #live-text, #live-text1, #live-text2, #live-text3, #live-text4, #live-text5, #live-text6 {
     h1 {
-      font-size: 35px;
+      font-size: 25px;
       margin: 11px 0px 20px 0px;
     }
-    h2 {
+    h2, h3 {
       font-weight: 400;
-      font-size: 28px;
+      font-size: 23px;
       margin: 19px 0px 0px 0px;
     }
     p {
     margin: 8px 10px 10px 10px;
     font-weight: $font-weight-p;
+    font-size: 15px;
     }
     margin-bottom: 10px;
     padding: $padding-small;

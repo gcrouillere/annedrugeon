@@ -48,7 +48,7 @@
     padding: 20px;
   }
   position: relative;
-  margin: 20px 0;
+  margin: 10px 0;
   .ephemeral-delete-link{
     position: absolute;
     right: 0px;
@@ -82,7 +82,7 @@
 
   .wrapper-image-small {
     width: 33%;
-    min-height: 500px;
+    height: 400px;
     margin-right: 40px;
     position: relative;
     @media all and (max-width: 576px) {
@@ -142,5 +142,14 @@
     #input1, #input2, #input3, #input4, #input5, #input6 {
       min-height: 330px;
     }
+  }
+}
+
+.sell-text, .sellpoint-content {
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 14px;
   }
 }

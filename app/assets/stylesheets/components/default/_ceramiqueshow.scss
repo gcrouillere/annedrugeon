@@ -1,6 +1,6 @@
 // LAPTOP
   .product-show {
-    margin: 20px 0 30px 0;
+    margin: 20px 0 5px 0;
     display: flex;
     .product-show-half-top-wrapper-left {
       padding: 0px;
@@ -60,14 +60,11 @@
       margin-bottom: 20px;
       h1 {
         margin: 20px 0px 0px 0px;
-        font-size: $font-size-h3;
+        font-size: 23px;
         font-weight: 500;
       }
-      p.description {
-        margin-top: 20px;
-        margin-bottom: 35px;
-        font-weight: $font-weight-h4;
-        font-size: $font-size-h5;
+      p {
+        font-size: 15px;
       }
       .description {
         position: relative;
@@ -93,7 +90,7 @@
           align-items: center;
         h2 {
           margin: 0px;
-          font-size: 26px;
+          font-size: 21px;
           flex: 1 0 auto;
           text-align: center;
         }
@@ -108,6 +105,21 @@
           align-items: center;
           justify-content: space-between;
         }
+      }
+    }
+  }
+
+  .product-details-and-description {
+    .p-description {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      background: $card-background;
+      padding: $padding-large;
+      border-radius: $project-border-radius;
+      border: $card-border;
+      p {
+        font-weight: $font-weight-h4;
+        font-size: $font-size-h5;
       }
     }
   }

@@ -20,7 +20,7 @@
           <div class="collection-image-container img<%= collection.id%>">
                <style>
                 .img<%= collection.id%> {
-                  background-image: url(<%= cl_image_path collection.photos[0].path %>);
+                  background-image: url(<%= cl_image_path collection.top_photo.path %>);
                   background-size: cover;
                   background-position-y: center;
                   background-position-x: center;

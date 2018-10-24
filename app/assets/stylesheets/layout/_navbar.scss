@@ -37,13 +37,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 2px 10px;
     background: $primary;
     a {
       font-weight: 100;
       color: white;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
     }
     .top-nav-link {
       font-weight: 100;
@@ -105,7 +105,7 @@
     position: relative;
     padding: 20px;
     .centered-logo img {
-      height: 120px;
+      height: 136px;
     }
   }
   .nav-bar-list {
@@ -126,15 +126,18 @@
         color: white !important;
       }
     }
-    .nav-link.link-with-bars {
-      border-right: 1px solid black;
-      border-left: 1px solid black;
-    }
     .nav-link:hover {
     }
     .nav-link:hover.nav-link-no-hover:hover {
     }
   }
+}
+
+.nav-link.link-with-bars {
+  border-right: 1px solid black;
+}
+.third-link {
+ border-right: 1px solid black;
 }
 
 .lightcart {

@@ -1,6 +1,7 @@
 class Collection < ApplicationRecord
   has_many :ceramiques, dependent: :nullify
   has_attachments :photos, dependent: :destroy
+  has_attachment :top_photo, dependent: :destroy
 
   include AlgoliaSearch
 
@@ -20,6 +21,7 @@ class Collection < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
   validates :photos, presence: true
+  validates :top_photo, presence: true
 
   def to_param
     name_param = self.send(I18n.locale == :fr ? (name_fr.present? ? "name_fr" : (name_en.present? ? "name_en" : "name")) : (name_en.present? ? "name_en" : "name")) || ""

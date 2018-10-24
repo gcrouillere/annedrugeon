@@ -34,13 +34,25 @@
       </style>
     <div class="white-bar"></div>
     </div>
-    <div class="map-container"><div id="map"></div></div>
+    <div class="map-container">
+      <%= photo_update('mapphoto', -3, '', '', 15, '.mappic', "Mise à jour carte")%>
+      <style>
+        .map-container {
+          background-image: url(<%= cl_image_path @mappicpath %>);
+          background-size: cover;
+          background-position-y: center;
+          background-position-x: center;
+          width: 100%;
+          height: 50%;
+        }
+      </style>
+    </div>
   </div>
 </div>
 
 <!-- MOBILE -->
 <div class="hidden-sm hidden-md hidden-lg photos-and-maps-mobile">
-  <div id="map-mobile"></div>
+  <%= @mappictag %>
   <%= @citypictag %>
 </div>
 
