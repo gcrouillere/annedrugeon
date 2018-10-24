@@ -30,9 +30,14 @@
 
   .wrapper-image-small {
     width: 33%;
-    height: 400px;
     margin-right: 40px;
     position: relative;
+    .image-1 {
+      height: 400px;
+    }
+    .image-3 {
+      height: 300px;
+    }
   }
 
   .top-texts {
