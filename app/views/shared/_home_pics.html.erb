@@ -6,21 +6,21 @@
 <% @homepicpathmobile3 = image_path ENV['HOMEPICMOBILE3'] %>
 <% if @admin %>
   <% if  @admin.productphoto1.present? %>
-    <% @homepicpath1 = cl_image_path @admin.productphoto1.path %>
+    <% @homepicpath1 = cl_image_path @admin.productphoto1.path, quality: "20" %>
   <% end %>
   <% if  @admin.productphoto2.present? %>
-    <% @homepicpath2 = cl_image_path @admin.productphoto2.path %>
+    <% @homepicpath2 = cl_image_path @admin.productphoto2.path, quality: "20" %>
   <% end %>
   <% if  @admin.productphoto3.present? %>
-    <% @homepicpath3 = cl_image_path @admin.productphoto3.path %>
+    <% @homepicpath3 = cl_image_path @admin.productphoto3.path, quality: "20" %>
   <% end %>
   <% if  @admin.productphotomobile1.present? %>
-    <% @homepicpathmobile1 = cl_image_path @admin.productphotomobile1.path %>
+    <% @homepicpathmobile1 = cl_image_path @admin.productphotomobile1.path, quality: "20" %>
   <% end %>
   <% if  @admin.productphotomobile2.present? %>
-    <% @homepicpathmobile2 = cl_image_path @admin.productphotomobile2.path %>
+    <% @homepicpathmobile2 = cl_image_path @admin.productphotomobile2.path, quality: "20" %>
   <% end %>
   <% if  @admin.productphotomobile3.present? %>
-    <% @homepicpathmobile3 = cl_image_path @admin.productphotomobile3.path %>
+    <% @homepicpathmobile3 = cl_image_path @admin.productphotomobile3.path, quality: "20" %>
   <% end %>
 <% end %>
