@@ -21,36 +21,36 @@
 <% if @admin %>
 
   <% if @admin.avatarphoto.present? %>
-    <% @avatarpictag = cl_image_tag @admin.avatarphoto.path, class: "img-avatar", alt: "Anne Drugeon, créatrice de céramiques uniques"%>
+    <% @avatarpictag = cl_image_tag @admin.avatarphoto.path, class: "img-avatar", alt: "Anne Drugeon, créatrice de céramiques uniques", quality: "50" %>
   <% end %>
 
   <% if @admin.workshopphoto.present? %>
-    <% @workshopictag = cl_image_tag @admin.workshopphoto.path, class: "img-avatar", alt: "Atelier d' #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
+    <% @workshopictag = cl_image_tag @admin.workshopphoto.path, class: "img-avatar", alt: "Atelier d' #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}", quality: "50" %>
   <% end %>
 
   <% if @admin.mapphoto.present? %>
-    <% @mappictag = cl_image_tag @admin.mapphoto.path, class: "img-avatar", alt: "Localisation de l'atelier d' #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
+    <% @mappictag = cl_image_tag @admin.mapphoto.path, class: "img-avatar", alt: "Localisation de l'atelier d' #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}", quality: "50" %>
     <% @mappicpath = @admin.mapphoto.path %>
   <% end %>
 
   <% if @admin.info1photo.present? %>
-    <% @info1pictag = cl_image_path @admin.info1photo.path, class: "img-avatar", alt: "Anne Drugeon, créatrice de céramiques uniques"%>
+    <% @info1pictag = cl_image_path @admin.info1photo.path, class: "img-avatar", alt: "Anne Drugeon, créatrice de céramiques uniques", quality: "50" %>
   <% end %>
 
   <% if @admin.info2photos.present? %>
-    <% @info2pics = @admin.info2photos.map {|photo| cl_image_path photo.path} %>
+    <% @info2pics = @admin.info2photos.map {|photo| cl_image_path(photo.path, quality: "50")} %>
   <% end %>
 
   <% if @admin.info3photo.present? %>
-    <% @info3pictag = cl_image_path @admin.info3photo.path, class: "img-avatar", alt: "Anne Drugeon, créatrice de céramiques uniques"%>
+    <% @info3pictag = cl_image_path @admin.info3photo.path, class: "img-avatar", alt: "Anne Drugeon, créatrice de céramiques uniques", quality: "50"%>
   <% end %>
 
   <% if @admin.info4photos.present? %>
-    <% @info4pics = @admin.info4photos.map {|photo| cl_image_path photo.path} %>
+    <% @info4pics = @admin.info4photos.map {|photo| cl_image_path(photo.path, quality: "50")} %>
   <% end %>
 
   <% if  @admin.cityphoto.present? %>
-    <% @citypictag = cl_image_tag(cl_image_path @admin.cityphoto.path, alt: "#{ENV['ADDRESS'].gsub(/[+]/, ' ')}, localisation de l'atelier de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}") %>
+    <% @citypictag = cl_image_tag(cl_image_path @admin.cityphoto.path, alt: "#{ENV['ADDRESS'].gsub(/[+]/, ' ')}, localisation de l'atelier de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}", quality: "50") %>
       <% @citypicpath = @admin.cityphoto.path %>
   <% end %>
 

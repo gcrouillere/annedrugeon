@@ -10,7 +10,7 @@
       <div class="img-container img-container<%=ceramique.id%>">
         <style>
           .img-container<%=ceramique.id%> {
-            background-image: url(<%= cl_image_path(ceramique.photos[0].path, :quality => "auto")%>);
+            background-image: url(<%= cl_image_path(ceramique.photos[0].path, :quality => "10")%>);
             background-size: cover;
             background-position-y: center;
             background-position-x: center;

@@ -1,7 +1,7 @@
 <div class="wrapper-image-small image-1 image-<%=ephemeral.id%>">
   <style>
     .image-<%=ephemeral.id%> {
-      background-image: url(<%= cl_image_path ephemeral.article_main_photo.path if ephemeral.article_main_photo %>);
+      background-image: url(<%= cl_image_path(ephemeral.article_main_photo.path, quality: "50") if ephemeral.article_main_photo %>);
       background-size: cover;
       background-position-y: center;
       background-position-x: center;

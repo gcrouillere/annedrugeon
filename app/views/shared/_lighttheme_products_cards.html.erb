@@ -7,12 +7,12 @@
                 <div class="img-container ceramique-front-image-<%=index%>">
                   <style>
                     .ceramique-front-image-<%=index%> {
-                      background-image: url(<%= cl_image_path ceramique.photos[0].path, quality: "auto" %>);
+                      background-image: url(<%= cl_image_path ceramique.photos[0].path, quality: "10" %>);
                     }
                     <% if ceramique.photos[1]%>
                     .ceramique-front-image-<%=index%>:hover {
                       <% if  cl_image_path ceramique.photos[1]%>
-                        background-image: url(<%= cl_image_path ceramique.photos[1].path, quality: "60" %>);
+                        background-image: url(<%= cl_image_path ceramique.photos[1].path, quality: "10" %>);
                       <% end %>
                     }
                     <% end %>

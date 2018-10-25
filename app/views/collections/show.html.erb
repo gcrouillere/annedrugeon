@@ -36,7 +36,7 @@
             <div class="carousel-banner photo<%= "#{index}-#{photo_index}"%>"></div>
             <style>
               .photo<%= "#{index}-#{photo_index}" %> {
-                background-image: url(<%= cl_image_path photo.path %>);
+                background-image: url(<%= cl_image_path(photo.path, quality: "10") %>);
                 background-size: cover;
               }
               .carousel-banner {
@@ -76,7 +76,7 @@
         <div class="carousel-banner photo<%= index%>"></div>
         <style>
           .photo<%= index%> {
-            background-image: url(<%= cl_image_path photo.path %>);
+            background-image: url(<%= cl_image_path(photo.path, quality: "10") %>);
             background-size: cover;
           }
         </style>
