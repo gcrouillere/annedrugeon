@@ -33,15 +33,15 @@ class ApplicationController < ActionController::Base
   end
 
   def uniq_categories
-    @uniq_categories = ::Ceramique.all.map do |ceramique|
+    @uniq_categories = ::Ceramique.where(active: true).all.map do |ceramique|
       ceramique.category.name
     end
     @uniq_categories = @uniq_categories.uniq.sort
   end
 
   def uniq_top_categories_and_collections_and_price_range
-    @uniq_top_categories = ::Ceramique.all.map {|ceramique| ceramique.category.topcategory}.uniq
-    @uniq_collections = ::Collection.joins(:ceramiques).where("collection_id IS NOT NULL")
+    @uniq_top_categories = ::Ceramique.all.where(active: true).map {|ceramique| ceramique.category.topcategory}.uniq
+    @uniq_collections = ::Collection.joins(:ceramiques).where("collection_id IS NOT NULL AND active = ?", true)
   end
 
   #DEVISE methods:

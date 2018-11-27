@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
   def index
     @dev_redirection = "https://www.creermonecommerce.fr/product_claim_details"
     @collections = Collection.all
-    @ceramiques = Ceramique.where("collection_id IS NOT NULL")
+    @ceramiques = Ceramique.where("collection_id IS NOT NULL and active = ?", true)
     clean_orders
   end
 
@@ -12,7 +12,7 @@ class CollectionsController < ApplicationController
     @dev_redirection = "https://www.creermonecommerce.fr/realisations"
     @collection = Collection.find(params[:id])
     @photos_by_3 = @collection.photos.in_groups_of(3).map {|array| array.reject {|item| item == nil}}
-    @ceramiques = @collection.ceramiques
+    @ceramiques = Ceramique.where(collection: @collection, active: true)
     clean_orders
   end
 
