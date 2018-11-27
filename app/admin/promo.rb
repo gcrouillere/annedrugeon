@@ -28,7 +28,7 @@ ActiveAdmin.register Promo do
 
     def destroy
       super do |format|
-        redirect_to admin_promos_path and return if resource.valid?
+        redirect_to admin_promos_path and return
       end
     end
 

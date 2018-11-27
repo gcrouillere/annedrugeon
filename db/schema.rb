@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_26_115419) do
+ActiveRecord::Schema.define(version: 2018_11_27_140124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_115419) do
     t.string "ceramique_name"
     t.integer "ceramique_qty"
     t.integer "basketline_price_cents", default: 0, null: false
+    t.integer "ceramique_id_on_order"
     t.index ["ceramique_id"], name: "index_basketlines_on_ceramique_id"
     t.index ["order_id"], name: "index_basketlines_on_order_id"
   end
@@ -112,6 +113,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_115419) do
     t.boolean "gold"
     t.string "packing"
     t.string "cleaning"
+    t.boolean "active"
     t.index ["category_id"], name: "index_ceramiques_on_category_id"
     t.index ["collection_id"], name: "index_ceramiques_on_collection_id"
     t.index ["offer_id"], name: "index_ceramiques_on_offer_id"
