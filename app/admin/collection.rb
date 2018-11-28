@@ -22,19 +22,28 @@ ActiveAdmin.register Collection, as: 'Collections' do
       end
       row :images do |collection|
         collection.photos.each do |photo|
-          span img(src: "http://res.cloudinary.com/#{ENV['CLOUDINARY_NAME']}/image/upload/#{photo.path}")
+          span img(src: cl_image_path(photo.path, :width=>250, :crop=>"scale"))
         end
       end
     end
   end
 
   form do |f|
+    ceramique_selection = Ceramique.where(active: true).map {|product|"ID: #{product.id} - #{product.name}"}
     f.inputs "" do
       f.input :name
       f.input :description
+    end
+    f.inputs "Image principale", class: 'product_images' do
+      img(src: cl_image_path(f.object.top_photo.path, :width=>250, :crop=>"scale")) unless f.object.new_record?
       f.input :top_photo, :as => :formtastic_attachinary, :hint => "Photo principale, visbile dans la liste des collections."
+    end
+    f.inputs "Les photos de la collection", class: 'product_images' do
+      f.object.photos.each {|photo| img(src: cl_image_path(photo.path, :width=>250, :crop=>"scale"))} unless f.object.new_record?
       f.input :photos, :as => :formtastic_attachinary, :hint => "Sélectionnez les photos de la collection. Maintenez Ctrl appuyé pour en sélectionner plusieurs."
-      f.input :ceramiques, as: :check_boxes, :label => "Produits", :hint => "Sélectionnez les produits inclus dans la collection."
+    end
+    f.inputs "Produits associés", class: 'product_images' do
+      f.input :ceramiques, as: :checkbox_image, :collection => ceramique_selection
     end
     f.actions
   end
@@ -71,7 +80,7 @@ ActiveAdmin.register Collection, as: 'Collections' do
     # Helper methods
     def ceramiques_collection_assignment
       params["action"] == "create" ? current_collection = Collection.last : current_collection = Collection.find(params[:id])
-      ceramiques_ids_with_collection = params["collection"]["ceramique_ids"].select{|s| s != ""}.map {|s| s.to_i}
+      ceramiques_ids_with_collection = params["collection"]["ceramique_ids"].select{|s| s != ""}.map {|s| s.gsub("ID: ","").to_i}
       ceramiques_ids_with_collection.each do |id|
         Ceramique.find(id).update(collection: current_collection)
       end
