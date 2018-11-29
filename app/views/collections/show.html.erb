@@ -1,8 +1,8 @@
 <% content_for(:title_tag) do %>
-
+  <%= @collection.name.capitalize %>
 <% end %>
 <% content_for(:description) do %>
-
+  <%= @collection.name.description %>
 <% end %>
 
 <%= render 'shared/lighttheme_photo_loading'%>
