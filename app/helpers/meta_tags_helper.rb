@@ -1,14 +1,14 @@
 module MetaTagsHelper
   def meta_title
-    content_for?(:title_tag) ? content_for(:title_tag) : "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"
+    content_for?(:title_tag) ? content_for(:title_tag) : "Les bijoux et objets en céramique d'Anne Drugeon"
   end
 
   def meta_product_name
-    content_for?(:meta_product_name) ? content_for(:meta_product_name) : "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} - vente de produits de l'artisanat"
+    content_for?(:meta_product_name) ? content_for(:meta_product_name) : "Les bijoux et objets en céramique d'Anne Drugeon"
   end
 
   def meta_description
-    description = "Des produits extraordinaires. Décor somptueux. Venez découvrir leur fabrication lors d'un stage."
+    description = "Toutes les créations sont uniques, découvrez les dans la boutique."
     content_for?(:description) ? content_for(:description) : description
   end
 

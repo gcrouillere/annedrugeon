@@ -36,7 +36,7 @@ ActiveAdmin.register Collection, as: 'Collections' do
     end
     f.inputs "Image principale", class: 'product_images' do
       img(src: cl_image_path(f.object.top_photo.path, :width=>250, :crop=>"scale")) unless f.object.new_record?
-      f.input :top_photo, :as => :formtastic_attachinary, :hint => "Photo principale, visbile dans la liste des collections."
+      f.input :top_photo, :as => :formtastic_attachinary, :hint => "Photo principale, visible dans la liste des collections."
     end
     f.inputs "Les photos de la collection", class: 'product_images' do
       f.object.photos.each {|photo| img(src: cl_image_path(photo.path, :width=>250, :crop=>"scale"))} unless f.object.new_record?

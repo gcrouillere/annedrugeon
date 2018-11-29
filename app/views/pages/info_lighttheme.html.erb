@@ -61,7 +61,7 @@
           {
             lat: <%= ENV['LAT'].to_f %>,
             lng: <%= ENV['LNG'].to_f %>,
-            infowindow: "<%= "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>"
+            infowindow: "Les bijoux et objets en céramique d'Anne Drugeon"
           }
         ]);
         handler1.bounds.extendWith(markers1);
@@ -89,7 +89,7 @@
       "@type": "ArtGallery",
       "image": ["<%=request.original_url%><%= image_path ENV['HOMEPIC1']%>"],
       "@id": "<%=request.original_url%>",
-      "name": "<%=t(:les_produits_de_machin, product:"#{ENV['MODEL']}", name: "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}")%>",
+      "name": "Les bijoux et objets en céramique d'Anne Drugeon",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "12 rue de la paix",

@@ -1,0 +1,12 @@
+<% hover_pathes = [] %>
+<% @collection.photos.each do |photo| %>
+  <% if photo %>
+    <% hover_pathes << "url(#{cl_image_path(photo.path, quality: "10")})" %>
+  <% end %>
+<% end %>
+<style>
+  body:after {
+    display:none;
+    content: <%= hover_pathes.join(' ')%> ;
+  }
+</style>

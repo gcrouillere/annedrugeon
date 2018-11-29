@@ -23,4 +23,22 @@
   <% if  @admin.productphotomobile3.present? %>
     <% @homepicpathmobile3 = cl_image_path @admin.productphotomobile3.path, quality: "20" %>
   <% end %>
+
+<% hover_pathes = [] %>
+<% photos = [] %>
+<%(1..3)
+  .each {|i| photos << instance_variable_get("@homepicpath#{i}")}
+  .each{|i| photos << instance_variable_get("@homepicpathmobile#{i}")}%>
+<% photos.each do |photo| %>
+  <% if photo %>
+    <% hover_pathes << "url(#{photo})" %>
+  <% end %>
+<% end %>
+<style>
+  body:after {
+    display:none;
+    content: <%= hover_pathes.join(' ')%> ;
+  }
+</style>
+
 <% end %>
