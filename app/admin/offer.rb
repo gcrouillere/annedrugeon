@@ -70,7 +70,7 @@ ActiveAdmin.register Offer, as: 'Offres' do
       @offer = Offer.find(params[:id].to_i)
       @offer.ceramiques.each {|ceramique| ceramique.update(offer: nil)}
       super do |format|
-        redirect_to admin_offres_path and return if resource.valid?
+        redirect_to admin_offres_path and return
       end
     end
 
