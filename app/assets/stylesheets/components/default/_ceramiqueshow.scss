@@ -88,10 +88,10 @@
       .prix-form {
           display: flex;
           align-items: center;
+          justify-content: space-around;
         h2 {
           margin: 0px;
           font-size: 21px;
-          flex: 1 0 auto;
           text-align: center;
         }
         h3 {

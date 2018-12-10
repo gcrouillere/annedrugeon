@@ -93,6 +93,7 @@ class PaymentsController < ApplicationController
       @order.promo.present? ? order_discount = @order.promo.percentage : order_discount = 0
       if basketline.ceramique
         basketline.ceramique.offer ? ceramique_discount = basketline.ceramique.offer.discount : ceramique_discount = 0
+
         basketline.update(
           ceramique_name: basketline.ceramique.name,
           ceramique_qty: basketline.quantity,
