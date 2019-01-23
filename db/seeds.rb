@@ -9,7 +9,7 @@ prices = { "METRO": [495, 625, 710, 780, 880, 1335, 1950, 2780],
     "Outre-Mer 1": [945, 945, 1435, 1435, 1950, 2935, 4710, 10500],
     "Outre-Mer 2": [1140, 1140, 1710, 1710, 3010, 5050, 9850, 25000],
     "UE": [1230, 1230, 1520, 1520, 1720, 2200, 3630, 6030],
-    "Eastern Europe Norvège and Maghreb": [1665, 1665, 1990, 1990, 2175, 2795, 4625, 7215],
+    "Eastern Europe Norway and Maghreb": [1665, 1665, 1990, 1990, 2175, 2795, 4625, 7215],
     "Rest of the world": [2435, 2435, 2710, 2710, 3730, 5455, 10310, 16460]
 }
 
@@ -25,7 +25,7 @@ countries_classification = {
 }
 
 
-area_name = ["METRO", "Outre-Mer 1", "Outre-Mer 2", "UE", "Eastern Europe Norvège and Maghreb", "Rest of the world"]
+area_name = ["METRO", "Outre-Mer 1", "Outre-Mer 2", "UE", "Eastern Europe Norway and Maghreb", "Rest of the world"]
 
 ISO3166::Country.countries.each do |country|
   weights.each_with_index do |weight, index|
